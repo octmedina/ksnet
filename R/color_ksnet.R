@@ -8,7 +8,8 @@
 # List of color palettes
 #' @export
 paletas_ksnet <- list(
-  ksnet_classic = c("#00b2a9", "#f46572", "#ffc000", "#2708a0", "#a4036f")
+  ksnet_classic = c("#00b2a9", "#f46572", "#ffc000", "#A5A5A5", "#056F6A")
+  #ksnet_classic = c("#00b2a9", "#f46572", "#ffc000", "#2708a0", "#a4036f")
 )
 
 
