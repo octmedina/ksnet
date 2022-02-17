@@ -2,6 +2,7 @@
 
 S3method(print,palette)
 export(color_ksnet)
+export(ksnet_bar)
 export(ksnet_hist)
 export(ksnet_scatter)
 export(paletas_ksnet)

@@ -11,8 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
-library(palmerpenguins)
-data(penguins)
+#library(palmerpenguins)
+#data(penguins)
 ```
 
 # ksnet
@@ -39,11 +39,13 @@ devtools::install_github("octmedina/ksnet")
 ```
 ## Gráficos
 
-Este es un ejemplo básico que muestra cómo resolver un problema común: hacer una gráfica con datos. Empecemos con un scatterplot y un histograma.
+Este es un ejemplo básico que muestra cómo resolver un problema común: hacer una gráfica con datos. Empecemos con un histograma.
 
 ```{r plots1, dpi=300}
 
 library(ksnet)
+library(palmerpenguins)
+library(ggplot2)
 
 ## Plotting a histogram of penguin bill length
 
@@ -51,11 +53,29 @@ ksnet_hist(penguins, bill_length_mm)
 
 ```
 
+La función se puede usar con la pipe también. Aquí hay una gráfica de barra.
+
 ```{r plots2, dpi=300}
 
-## Simple scatterplot
+library(dplyr)
 
-ksnet_scatter(penguins, bill_length_mm, flipper_length_mm) 
+## Simple barplot
+penguins %>%
+    group_by(species) %>%
+    count() %>%
+    ksnet_bar(species, n) 
+
+```
+
+Y finalmente, scatterplots. La función viene preparada para incluir el color estándar de KSNET, así como la plantilla de gráficos. El objeto que genera es un `ggplot`, así que se pueden añadir títulos y etiquetas fácilmente:
+
+```{r plots3, dpi=300}
+
+## Simple scatterplot
+penguins %>%
+    ksnet_scatter(bill_length_mm, flipper_length_mm) +
+    labs(title = "Pingüinos KSNET",
+         subtitle = "Según con la EPA")
 
 ```
 
@@ -64,11 +84,10 @@ ksnet_scatter(penguins, bill_length_mm, flipper_length_mm)
 También podemos utilizar `themes`, o plantillas de gráficas. 
 
 ```{r themes1, dpi=300, fig.width=8, fig.height=6}
-library(ggplot2)
 
 ksnet_scatter(penguins, bill_length_mm, flipper_length_mm) + 
-  labs(title = "This is a sample plot",
-       subtitle = "And this is the subtitle") +
+  labs(title = "Esto es un ejemplo",
+       subtitle = "Y esto un subtítulo") +
   theme_ksnet()
 
 ```
@@ -85,10 +104,25 @@ color_ksnet("ksnet_classic")
 
 ```
 
-Este es el aspecto que tiene cuando lo combinamos con una graáfica.
-
+Este es el aspecto que tiene cuando lo combinamos con una gráfica.
 
 ```{r color2, dpi=300, fig.width=8, fig.height=6}
+
+penguins %>%
+    group_by(species) %>%
+    count() %>%
+    ggplot(aes(species, n, fill = species)) + 
+  geom_col() +
+  labs(title = "Pingüinos una vez más",
+       subtitle = "Con subtítulo") +
+  theme_ksnet() +
+  scale_fill_manual(values = color_ksnet("ksnet_classic"))
+
+```
+
+
+
+```{r color3, dpi=300, fig.width=8, fig.height=6}
 
 ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = species)) + 
   geom_point() +

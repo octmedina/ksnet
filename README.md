@@ -31,11 +31,12 @@ devtools::install_github("octmedina/ksnet")
 ## Gráficos
 
 Este es un ejemplo básico que muestra cómo resolver un problema común:
-hacer una gráfica con datos. Empecemos con un scatterplot y un
-histograma.
+hacer una gráfica con datos. Empecemos con un histograma.
 
 ``` r
 library(ksnet)
+library(palmerpenguins)
+library(ggplot2)
 
 ## Plotting a histogram of penguin bill length
 
@@ -46,25 +47,53 @@ ksnet_hist(penguins, bill_length_mm)
 
 <img src="man/figures/README-plots1-1.png" width="100%" />
 
-``` r
-## Simple scatterplot
+La función se puede usar con la pipe también. Aquí hay una gráfica de
+barra.
 
-ksnet_scatter(penguins, bill_length_mm, flipper_length_mm) 
-#> Warning: Removed 2 rows containing missing values (geom_point).
+``` r
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+
+## Simple barplot
+penguins %>%
+    group_by(species) %>%
+    count() %>%
+    ksnet_bar(species, n) 
 ```
 
 <img src="man/figures/README-plots2-1.png" width="100%" />
+
+Y finalmente, scatterplots. La función viene preparada para incluir el
+color estándar de KSNET, así como la plantilla de gráficos. El objeto
+que genera es un `ggplot`, así que se pueden añadir títulos y etiquetas
+fácilmente:
+
+``` r
+## Simple scatterplot
+penguins %>%
+    ksnet_scatter(bill_length_mm, flipper_length_mm) +
+    labs(title = "Pingüinos KSNET",
+         subtitle = "Según con la EPA")
+#> Warning: Removed 2 rows containing missing values (geom_point).
+```
+
+<img src="man/figures/README-plots3-1.png" width="100%" />
 
 ## Themes
 
 También podemos utilizar `themes`, o plantillas de gráficas.
 
 ``` r
-library(ggplot2)
-
 ksnet_scatter(penguins, bill_length_mm, flipper_length_mm) + 
-  labs(title = "This is a sample plot",
-       subtitle = "And this is the subtitle") +
+  labs(title = "Esto es un ejemplo",
+       subtitle = "Y esto un subtítulo") +
   theme_ksnet()
 #> Warning: Removed 2 rows containing missing values (geom_point).
 ```
@@ -85,7 +114,21 @@ color_ksnet("ksnet_classic")
 
 <img src="man/figures/README-color1-1.png" width="100%" />
 
-Este es el aspecto que tiene cuando lo combinamos con una graáfica.
+Este es el aspecto que tiene cuando lo combinamos con una gráfica.
+
+``` r
+penguins %>%
+    group_by(species) %>%
+    count() %>%
+    ggplot(aes(species, n, fill = species)) + 
+  geom_col() +
+  labs(title = "Pingüinos una vez más",
+       subtitle = "Con subtítulo") +
+  theme_ksnet() +
+  scale_fill_manual(values = color_ksnet("ksnet_classic"))
+```
+
+<img src="man/figures/README-color2-1.png" width="100%" />
 
 ``` r
 ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = species)) + 
@@ -97,4 +140,4 @@ ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = species)) +
 #> Warning: Removed 2 rows containing missing values (geom_point).
 ```
 
-<img src="man/figures/README-color2-1.png" width="100%" />
+<img src="man/figures/README-color3-1.png" width="100%" />
