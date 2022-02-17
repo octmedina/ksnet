@@ -95,14 +95,21 @@ ksnet_scatter(penguins, bill_length_mm, flipper_length_mm) +
 
 ## Paletas de colores 
 
-Por último, hemos creado paletas de colores. Por ahora hay una: `ksnet_classic`. Para visualizarla, basta con utilizar la función `color_ksnet`.
+Por último, hemos creado paletas de colores. Por ahora hay dos: `ksnet_classic` y `ksnet_bright`. Para visualizarlas, basta con utilizar la función `color_ksnet`.
 
 
-```{r color1, dpi=300, fig.asp=0.4}
+```{r paleta1, dpi=300, fig.asp=0.4}
 
 color_ksnet("ksnet_classic")
 
 ```
+
+```{r paleta2, dpi=300, fig.asp=0.4}
+
+color_ksnet("ksnet_bright")
+
+```
+
 
 Este es el aspecto que tiene cuando lo combinamos con una gráfica.
 

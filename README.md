@@ -102,9 +102,9 @@ ksnet_scatter(penguins, bill_length_mm, flipper_length_mm) +
 
 ## Paletas de colores
 
-Por último, hemos creado paletas de colores. Por ahora hay una:
-`ksnet_classic`. Para visualizarla, basta con utilizar la función
-`color_ksnet`.
+Por último, hemos creado paletas de colores. Por ahora hay dos:
+`ksnet_classic` y `ksnet_bright`. Para visualizarlas, basta con utilizar
+la función `color_ksnet`.
 
 ``` r
 color_ksnet("ksnet_classic")
@@ -112,7 +112,15 @@ color_ksnet("ksnet_classic")
 #> "none")` instead.
 ```
 
-<img src="man/figures/README-color1-1.png" width="100%" />
+<img src="man/figures/README-paleta1-1.png" width="100%" />
+
+``` r
+color_ksnet("ksnet_bright")
+#> Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+#> "none")` instead.
+```
+
+<img src="man/figures/README-paleta2-1.png" width="100%" />
 
 Este es el aspecto que tiene cuando lo combinamos con una gráfica.
 
