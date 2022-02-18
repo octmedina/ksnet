@@ -1,0 +1,34 @@
+---
+title: "Template Title"
+author: "Your Name"
+date: |
+    ![](logo.png){width=1.5in} 
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      ratio: '16:9'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#00b2a9",
+  header_font_google = google_font("Public Sans"),
+  text_font_google   = google_font("Public Sans"),
+  code_font_google   = google_font("Fira Mono")
+)
+```
+
+
+## Adding an RMarkdown Template
+
+This file is what a user will see when they select your template. Make sure that you update the fields in the yaml header. In particular you will want to update the `output` field to whatever format your template requires.
+
+This is a good place to demonstrate special features that your template provides. Ideally it should knit out-of-the-box, or at least contain clear instructions as to what needs changing.
+
+Finally, be sure to remove this message!
