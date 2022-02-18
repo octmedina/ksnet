@@ -2,15 +2,21 @@
 % Please edit documentation in R/color_ksnet.R
 \name{color_ksnet}
 \alias{color_ksnet}
-\title{Apply an ideas42 color scheme to your plots and figures}
+\title{Aplicar un color KSNET a las figuras}
 \usage{
-color_ksnet(name, n, type = c("discrete", "continuous"))
+color_ksnet(
+  palette = "classic",
+  reverse = FALSE,
+  n,
+  type = c("discrete", "continuous"),
+  ...
+)
 }
 \value{
 
 }
 \description{
-Apply an ideas42 color scheme to your plots and figures
+Aplicar un color KSNET a las figuras
 }
 \examples{
 

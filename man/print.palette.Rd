@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_ksnet.R
 \name{print.palette}
 \alias{print.palette}
-\title{Prints a palette}
+\title{Imprime la paleta}
 \usage{
 \method{print}{palette}(x, ...)
 }
@@ -10,5 +10,5 @@
 
 }
 \description{
-Prints a palette
+Imprime la paleta
 }

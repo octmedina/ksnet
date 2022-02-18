@@ -16,13 +16,13 @@
 #'
 #' @examples
 #'
-#'x <- c(1,2,3,4,5)
-#'y <-  rnorm(5, x, 0.5)
+#'x <- rnorm(100)
+#'y <-  rnorm(100, x, 1)
 #' my_data <- data.frame(x = x, y = y)
 #' ksnet_scatter(my_data, x, y)
 
 #' @importFrom rlang .data
-ksnet_scatter <- function(data, xvar, yvar, color = color_ksnet("ksnet_classic")[1]) {
+ksnet_scatter <- function(data, xvar, yvar, color = color_ksnet()[1]) {
 
   gg <-
     ggplot2::ggplot(data) +

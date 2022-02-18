@@ -19,7 +19,7 @@
 #' ksnet_hist(my_data, x)
 
 #' @importFrom rlang .data
-ksnet_hist <- function(data, xvar, fill = color_ksnet("ksnet_classic")[1]) {
+ksnet_hist <- function(data, xvar, fill = color_ksnet()[1]) {
 
   gg <-
     ggplot2::ggplot(data) +

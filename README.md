@@ -107,17 +107,13 @@ Por último, hemos creado paletas de colores. Por ahora hay dos:
 la función `color_ksnet`.
 
 ``` r
-color_ksnet("ksnet_classic")
-#> Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
-#> "none")` instead.
+color_ksnet("classic")
 ```
 
 <img src="man/figures/README-paleta1-1.png" width="100%" />
 
 ``` r
-color_ksnet("ksnet_bright")
-#> Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
-#> "none")` instead.
+color_ksnet("bright")
 ```
 
 <img src="man/figures/README-paleta2-1.png" width="100%" />
@@ -133,7 +129,7 @@ penguins %>%
   labs(title = "Pingüinos una vez más",
        subtitle = "Con subtítulo") +
   theme_ksnet() +
-  scale_fill_manual(values = color_ksnet("ksnet_classic"))
+  scale_fill_ksnet_discrete()
 ```
 
 <img src="man/figures/README-color2-1.png" width="100%" />
@@ -144,8 +140,78 @@ ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = species)) +
   labs(title = "This is a sample plot",
        subtitle = "And this is the subtitle") +
   theme_ksnet() +
-  scale_color_manual(values = color_ksnet("ksnet_classic"))
+  scale_color_ksnet_discrete()
 #> Warning: Removed 2 rows containing missing values (geom_point).
 ```
 
 <img src="man/figures/README-color3-1.png" width="100%" />
+
+## Escalas continuas
+
+Para visualizar variables continuas, tenemos varias escalas disponibles.
+La escala predefinida está basada en el verde KSNET, pero también
+tenemos:
+
+-   Verde
+-   Amarillo
+-   Rojo
+-   Gris
+
+``` r
+color_ksnet("verde")
+```
+
+<img src="man/figures/README-continuous1-1.png" width="100%" />
+
+``` r
+color_ksnet("gris")
+```
+
+<img src="man/figures/README-continuous2-1.png" width="100%" />
+
+``` r
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = body_mass_g)) + 
+    geom_point() +
+    theme_ksnet() +
+    scale_color_ksnet_continuous("verde") +
+    labs(title = "Escala monocolor con verde KSNET")
+#> Warning: Removed 2 rows containing missing values (geom_point).
+```
+
+<img src="man/figures/README-continuous3-1.png" width="100%" />
+
+Además de las escalas monocolor, tenemos dos escalas bicolor:
+
+-   Verde y amarillo
+-   Rojo y amarillo
+
+``` r
+color_ksnet("verde_amarillo")
+```
+
+<img src="man/figures/README-continuous4-1.png" width="100%" />
+
+Algunos ejemplos:
+
+``` r
+  
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = body_mass_g)) + 
+    geom_point() +
+    theme_ksnet() +
+    scale_color_ksnet_continuous("verde_amarillo") +
+    labs(title = "Escala bicolor con verde y amarillo")
+#> Warning: Removed 2 rows containing missing values (geom_point).
+```
+
+<img src="man/figures/README-continuous5-1.png" width="100%" />
+
+``` r
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = body_mass_g)) + 
+    geom_point() +
+    theme_ksnet() +
+    scale_color_ksnet_continuous("rojo_amarillo") +
+    labs(title = "Escala bicolor con rojo y amarillo")
+#> Warning: Removed 2 rows containing missing values (geom_point).
+```
+
+<img src="man/figures/README-continuous6-1.png" width="100%" />

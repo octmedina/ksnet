@@ -4,7 +4,7 @@
 \alias{ksnet_hist}
 \title{Generate a histogram with ksnet styling}
 \usage{
-ksnet_hist(data, xvar, fill = color_ksnet("ksnet_classic")[1])
+ksnet_hist(data, xvar, fill = color_ksnet()[1])
 }
 \arguments{
 \item{data}{data.frame}

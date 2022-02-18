@@ -4,7 +4,7 @@
 \alias{ksnet_bar}
 \title{Generate a bar chart}
 \usage{
-ksnet_bar(data, xvar, yvar, fill = color_ksnet("ksnet_classic")[1])
+ksnet_bar(data, xvar, yvar, fill = color_ksnet()[1])
 }
 \arguments{
 \item{data}{data.frame}

@@ -22,7 +22,7 @@
 #' ksnet_bar(my_data, x, y)
 
 #' @importFrom rlang .data
-ksnet_bar <- function(data, xvar, yvar, fill = color_ksnet("ksnet_classic")[1]) {
+ksnet_bar <- function(data, xvar, yvar, fill = color_ksnet()[1]) {
 
     gg <-
         ggplot2::ggplot(data) +

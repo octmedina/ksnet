@@ -100,13 +100,13 @@ Por último, hemos creado paletas de colores. Por ahora hay dos: `ksnet_classic`
 
 ```{r paleta1, dpi=300, fig.asp=0.4}
 
-color_ksnet("ksnet_classic")
+color_ksnet("classic")
 
 ```
 
 ```{r paleta2, dpi=300, fig.asp=0.4}
 
-color_ksnet("ksnet_bright")
+color_ksnet("bright")
 
 ```
 
@@ -123,7 +123,7 @@ penguins %>%
   labs(title = "Pingüinos una vez más",
        subtitle = "Con subtítulo") +
   theme_ksnet() +
-  scale_fill_manual(values = color_ksnet("ksnet_classic"))
+  scale_fill_ksnet_discrete()
 
 ```
 
@@ -136,8 +136,75 @@ ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = species)) +
   labs(title = "This is a sample plot",
        subtitle = "And this is the subtitle") +
   theme_ksnet() +
-  scale_color_manual(values = color_ksnet("ksnet_classic"))
+  scale_color_ksnet_discrete()
+
+```
+
+## Escalas continuas
+
+Para visualizar variables continuas, tenemos varias escalas disponibles. La escala predefinida está basada en el verde KSNET, pero también tenemos:
+
+- Verde
+- Amarillo
+- Rojo
+- Gris
+
+
+
+```{r continuous1, dpi=300, fig.width=8, fig.height=2}
+
+color_ksnet("verde")
+
+```
+
+```{r continuous2, dpi=300, fig.width=8, fig.height=2}
+
+color_ksnet("gris")
 
 ```
 
 
+```{r continuous3, dpi=300, fig.width=8, fig.height=6}
+
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = body_mass_g)) + 
+    geom_point() +
+    theme_ksnet() +
+    scale_color_ksnet_continuous("verde") +
+    labs(title = "Escala monocolor con verde KSNET")
+
+```
+
+Además de las escalas monocolor, tenemos dos escalas bicolor: 
+
+- Verde y amarillo
+- Rojo y amarillo
+
+```{r continuous4, dpi=300, fig.width=8, fig.height=2}
+
+color_ksnet("verde_amarillo")
+
+```
+
+Algunos ejemplos:
+   
+```{r continuous5, dpi=300, fig.width=8, fig.height=6}
+  
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = body_mass_g)) + 
+    geom_point() +
+    theme_ksnet() +
+    scale_color_ksnet_continuous("verde_amarillo") +
+    labs(title = "Escala bicolor con verde y amarillo")
+    
+```    
+
+```{r continuous6, dpi=300, fig.width=8, fig.height=6}
+
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, color = body_mass_g)) + 
+    geom_point() +
+    theme_ksnet() +
+    scale_color_ksnet_continuous("rojo_amarillo") +
+    labs(title = "Escala bicolor con rojo y amarillo")
+
+
+
+```
