@@ -85,7 +85,7 @@ print.palette <- function(x, ...) {
 #' @param ... Argumentos adicionales
 #'
 #' @export
-#' @example
+#' @examples
 #' x <- c(1,2,3,4,5)
 #' y <-  rnorm(5, x, 0.5)
 #' mis_datos <- data.frame(x = x, y = y)

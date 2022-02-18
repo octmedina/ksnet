@@ -5,6 +5,14 @@
 #'
 #'@export
 #'
+#'
+#'@examples
+#' x <- c("Barcelona", "Madrid", "Murcia")
+#' y <-  c(115, 90, 145)
+#' z  <- c(2019, 2020, 2019)
+#' mis_datos <- data.frame(provincia = x, variable = y, fecha = z)
+#'ksnet_table(mis_datos)
+#'
 ksnet_table <- function(df){
     df %>%
         gt::gt() %>%

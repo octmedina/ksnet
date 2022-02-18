@@ -12,7 +12,7 @@
 
 
 theme_ksnet <- function(){
-  font <- "Arial"   #assign font family up front
+  font <- "Public Sans"   #assign font family up front
 
   ggplot2::theme(    #replace elements we want to change
     plot.background = ggplot2::element_blank(), complete = TRUE,

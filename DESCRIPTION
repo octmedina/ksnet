@@ -12,10 +12,15 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Imports: 
     ggplot2,
     rlang,
     rmdformats,
-    palmerpenguins
+    palmerpenguins,
+    magrittr
 URL: https://octmedina.github.io/ksnet/
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr

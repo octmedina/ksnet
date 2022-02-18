@@ -27,7 +27,7 @@ ksnet_bar <- function(data, xvar, yvar, fill = color_ksnet()[1]) {
     gg <-
         ggplot2::ggplot(data) +
         ggplot2::aes(x = {{xvar}}, y = {{yvar}}) +
-        ggplot2::geom_col(fill = fill, color = 'white') +
+        ggplot2::geom_col(fill = fill) +
         theme_ksnet()
 
     return(gg)

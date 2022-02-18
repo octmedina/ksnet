@@ -1,0 +1,46 @@
+---
+title: "Tablas"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tablas}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ksnet)
+library(dplyr)
+library(palmerpenguins)
+```
+
+El paquete también incluye estilos para tablas (usando el paquete `gt`).
+ 
+```{r tables}
+ 
+ penguins %>%
+     head() %>%
+     select(island, species, body_mass_g) %>%
+     ksnet_table()
+ 
+```
+ 
+Si utilizamos `group_by` para agrupar variables, se crearán filas de grupo automáticamente:
+ 
+ 
+```{r tables2}
+ 
+ penguins %>%
+     group_by(species, island) %>%
+     summarize(mean_mass = mean(body_mass_g, na.rm = TRUE),
+               sd_mass = sd(body_mass_g, na.rm = TRUE)) %>%
+     ksnet_table()
+ 
+```
+
