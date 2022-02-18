@@ -19,7 +19,8 @@ Imports:
     rmdformats,
     palmerpenguins,
     magrittr,
-    dplyr
+    dplyr,
+    gt
 URL: https://octmedina.github.io/ksnet/
 Suggests: 
     rmarkdown,
