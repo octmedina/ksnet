@@ -18,7 +18,8 @@ Imports:
     rlang,
     rmdformats,
     palmerpenguins,
-    magrittr
+    magrittr,
+    dplyr
 URL: https://octmedina.github.io/ksnet/
 Suggests: 
     rmarkdown,
