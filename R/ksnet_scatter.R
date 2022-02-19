@@ -24,12 +24,12 @@
 #' @importFrom rlang .data
 ksnet_scatter <- function(data, xvar, yvar, color = color_ksnet()[1]) {
 
-  gg <-
-    ggplot2::ggplot(data) +
-    ggplot2::aes(x = {{xvar}}, y = {{yvar}}) +
-    ggplot2::geom_point(color = color) +
-    theme_ksnet()
+    gg <-
+        ggplot2::ggplot(data) +
+        ggplot2::aes(x = {{xvar}}, y = {{yvar}}) +
+        ggplot2::geom_point(color = color) +
+        theme_ksnet()
 
-  return(gg)
+    return(gg)
 
 }

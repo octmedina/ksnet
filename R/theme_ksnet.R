@@ -36,7 +36,7 @@ theme_ksnet <- function(){
 
       #text elements
       plot.title = ggplot2::element_text(  #title
-        family = font,            #set font family
+        #family = font,            #set font family
         size = 20,                #set font size
         face = 'bold',            #bold typeface
         hjust = 0,                #left align
@@ -44,19 +44,19 @@ theme_ksnet <- function(){
         margin = ggplot2::margin(b = 8)),
 
       plot.subtitle = ggplot2::element_text(#subtitle
-        family = font,            #font family
+        #family = font,            #font family
         hjust = 0,
         vjust = 1,
         size = 14,               #font size
         margin = ggplot2::margin(b = 18)),
 
       plot.caption = ggplot2::element_text(#caption
-        family = font,            #font family
+        #family = font,            #font family
         size = 9,                 #font size
         hjust = 1),               #right align
 
       axis.title = ggplot2::element_text(  #axis titles
-        family = font,            #font family
+        #family = font,            #font family
         size = 10,               #font size
         hjust = 1),
 
@@ -65,7 +65,7 @@ theme_ksnet <- function(){
         #angle = 0),
 
       axis.text = ggplot2::element_text(   #axis text
-        family = font,            #axis family
+        #family = font,            #axis family
         size = 9,                #font size
         margin = ggplot2::margin(t = 0, r = 0)),
 

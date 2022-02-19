@@ -17,3 +17,16 @@ scale_color_ksnet_continuous(palette = "verde", reverse = FALSE, ...)
 \description{
 Paleta continua de colores de KSNET (color)
 }
+\examples{
+library(ggplot2)
+library(dplyr)
+x <- rnorm(100)
+y <-  rnorm(100, x, 1)
+z <-  rnorm(100)
+mis_datos <- data.frame(variable = x, valor = y, valor2 = z)
+mis_datos \%>\%
+ggplot(aes(x = variable, y = valor, color = valor2)) +
+geom_point() +
+scale_color_ksnet_continuous() +
+theme_ksnet()
+}

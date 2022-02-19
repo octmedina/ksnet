@@ -26,4 +26,5 @@ x <- c("A","B","C","D")
 y <- c(5, 8, 12,15)
 my_data <- data.frame(x = x, y = y)
 ksnet_bar(my_data, x, y)
+
 }

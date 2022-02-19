@@ -20,7 +20,7 @@
 #'y <- c(5, 8, 12,15)
 #' my_data <- data.frame(x = x, y = y)
 #' ksnet_bar(my_data, x, y)
-
+#'
 #' @importFrom rlang .data
 ksnet_bar <- function(data, xvar, yvar, fill = color_ksnet()[1]) {
 

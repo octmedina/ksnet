@@ -86,12 +86,14 @@ print.palette <- function(x, ...) {
 #'
 #' @export
 #' @examples
-#' x <- c(1,2,3,4,5)
-#' y <-  rnorm(5, x, 0.5)
-#' mis_datos <- data.frame(x = x, y = y)
+#' library(ggplot2)
+#' library(dplyr)
+#'x <- c("A","B","C","D")
+#'y <- c(5, 8, 12,15)
+#' mis_datos <- data.frame(variable = x, valor = y)
 #' mis_datos %>%
-#' ggplot(aes(x = x, y = y, color = y)) +
-#' geom_point()
+#' ggplot(aes(x = variable, y = valor, color = variable)) +
+#' geom_point() +
 #' scale_color_ksnet_discrete() +
 #' theme_ksnet()
 #'
@@ -111,7 +113,19 @@ scale_color_ksnet_discrete <- function(palette = "classic", reverse = FALSE, ...
 #' @param ... Argumentos adicionales
 #'
 #'@export
-#'
+#'@examples
+#' library(ggplot2)
+#' library(dplyr)
+#'x <- rnorm(100)
+#'y <-  rnorm(100, x, 1)
+#'z <-  rnorm(100)
+#' mis_datos <- data.frame(variable = x, valor = y, valor2 = z)
+#' mis_datos %>%
+#' ggplot(aes(x = variable, y = valor, color = valor2)) +
+#' geom_point() +
+#' scale_color_ksnet_continuous() +
+#' theme_ksnet()
+
 scale_color_ksnet_continuous <- function(palette = "verde", reverse = FALSE, ...) {
 
     pal <- color_ksnet(palette = palette, reverse = reverse, type = "continuous")
@@ -128,14 +142,16 @@ scale_color_ksnet_continuous <- function(palette = "verde", reverse = FALSE, ...
 #' @param ... Argumentos adicionales
 #'
 #' @export
-#' @example
-#' x <- c(1,2,3,4,5)
-#' y <-  rnorm(5, x, 0.5)
-#' mis_datos <- data.frame(x = x, y = y)
+#' @examples
+#' library(ggplot2)
+#' library(dplyr)
+#'x <- c("A","B","C","D")
+#'y <- c(5, 8, 12,15)
+#' mis_datos <- data.frame(variable = x, valor = y)
 #' mis_datos %>%
-#' ggplot(aes(x = x, y = y, color = y)) +
-#' geom_point()
-#' scale_color_ksnet_discrete() +
+#' ggplot(aes(x = variable, y = valor, fill = variable)) +
+#' geom_col() +
+#' scale_fill_ksnet_discrete() +
 #' theme_ksnet()
 #'
 scale_fill_ksnet_discrete <- function(palette = "classic", reverse = FALSE, ...) {
@@ -153,6 +169,12 @@ scale_fill_ksnet_discrete <- function(palette = "classic", reverse = FALSE, ...)
 #' @param ... Argumentos adicionales
 #'
 #'@export
+#'@examples
+#' library(ggplot2)
+#' ggplot(faithfuld, aes(waiting, eruptions)) +
+#'    geom_raster(aes(fill = density)) +
+#'    scale_fill_ksnet_continuous() +
+#'    theme_ksnet()
 #'
 scale_fill_ksnet_continuous <- function(palette = "verde", reverse = FALSE, ...) {
 

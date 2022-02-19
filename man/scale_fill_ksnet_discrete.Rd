@@ -16,3 +16,16 @@ scale_fill_ksnet_discrete(palette = "classic", reverse = FALSE, ...)
 \description{
 Paleta discreta de colores de KSNET (fill)
 }
+\examples{
+library(ggplot2)
+library(dplyr)
+x <- c("A","B","C","D")
+y <- c(5, 8, 12,15)
+mis_datos <- data.frame(variable = x, valor = y)
+mis_datos \%>\%
+ggplot(aes(x = variable, y = valor, fill = variable)) +
+geom_col() +
+scale_fill_ksnet_discrete() +
+theme_ksnet()
+
+}

@@ -1,6 +1,6 @@
 ---
-title: "Template Title"
-author: "Your Name"
+title: "Presentación KSNET"
+author: "Equipo KSNET"
 date: |
     ![](logo.png){width=1.5in} 
 output:
@@ -10,9 +10,25 @@ output:
       ratio: '16:9'
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.retina=3,
+                      #out.width = "100%",
+                      cache = FALSE,
+                      message = FALSE, 
+                      warning = FALSE,
+                      fig.show = TRUE,
+                      hiline = TRUE)
+
+library(palmerpenguins)
+library(ksnet)
+library(dplyr)
+library(ggplot2)
+
+
 ```
+
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
@@ -24,11 +40,141 @@ style_mono_accent(
 )
 ```
 
+---
 
-## Adding an RMarkdown Template
+# Presentación KSNET
 
-This file is what a user will see when they select your template. Make sure that you update the fields in the yaml header. In particular you will want to update the `output` field to whatever format your template requires.
+Esta es una presentación KSNET. Se puede incluir texto en **negrita** y también en *cursiva*. También se puede incluir texto con formato de `código`.
 
-This is a good place to demonstrate special features that your template provides. Ideally it should knit out-of-the-box, or at least contain clear instructions as to what needs changing.
+- Esto es una lista con guiones
 
-Finally, be sure to remove this message!
+- Punto segundo
+
+- Punto tercero
+
+---
+class: inverse
+
+# Colores inversos
+
+Esta es una slide con colores inversos
+
+1. Y esto una lista numerada
+
+2. Segundo punto
+
+3. Tercer punto
+
+
+---
+
+class: inverse center middle
+
+# Color inverso, centrado
+
+Esta es una slide con colores inversos, y con el texto centrado.
+
+---
+
+# Citas
+
+También se puede incluir texto en **forma de cita:**
+
+> Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do. - Donald Knuth
+
+
+--
+
+Con dos guiones, se puede crear texto que aparezca secuencialmente.
+
+---
+
+# Tablas con estilo
+
+En la presentación se pueden incluir **tablas** también:
+
+```{r}
+
+penguins %>%
+    head(5) %>%
+    ksnet_table()
+
+```
+
+---
+
+# ...y gráficas
+
+```{r, fig.width= 8, fig.height= 4, out.width="80%"}
+
+penguins %>%
+    ggplot(aes(x = species, fill = species)) +
+    geom_bar() +
+    theme_ksnet() +
+    facet_wrap(~sex) +
+    scale_fill_ksnet_discrete() +
+    labs(title = "KSNET") +
+    guides(fill = "none")
+
+```
+
+
+---
+
+
+# Dos columnas
+
+- Y si queremos crear dos columnas en una slide, **se puede hacer sin problemas**. Probemos con esto:
+
+.pull-left[
+
+- Esta es la columna de la **izquierda**.
+
+]
+
+.pull-right[
+
+- Esta es la columna de la **derecha**.
+
+
+]
+
+---
+
+# Dos columnas, con gráfico
+
+.pull-left[
+
+- Esta es la columna de la **izquierda**.
+
+- A la derecha, podéis ver el gráfico.
+
+
+]
+
+.pull-right[
+
+
+```{r}
+
+penguins %>%
+    ggplot(aes(x = species, fill = species)) +
+    geom_bar() +
+    theme_ksnet() +
+    scale_fill_ksnet_discrete() +
+    labs(title = "KSNET")
+
+```
+
+
+]
+
+
+---
+class: inverse center middle
+
+# Gracias!
+
+```{r, out.width="20%"}
+knitr::include_graphics("logo.png") 
+```

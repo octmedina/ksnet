@@ -17,3 +17,11 @@ scale_fill_ksnet_continuous(palette = "verde", reverse = FALSE, ...)
 \description{
 Paleta continua de colores de KSNET (fill)
 }
+\examples{
+library(ggplot2)
+ggplot(faithfuld, aes(waiting, eruptions)) +
+   geom_raster(aes(fill = density)) +
+   scale_fill_ksnet_continuous() +
+   theme_ksnet()
+
+}

@@ -1,0 +1,35 @@
+---
+title: "Documentos"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{documentos}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ksnet)
+```
+
+# Documentos
+
+Con el paquete `ksnet` también se pueden generar plantillas para documentos que incluyan el estilo y logos de KSNET. Ahora mismo hay disponibles dos opciones:
+
+- Documento de word
+- Presentación xaringan
+
+## Plantilla de documento (MS Word)
+
+
+
+## Plantilla de presentación (xaringan)
+
+
+

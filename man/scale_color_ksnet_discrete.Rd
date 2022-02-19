@@ -17,12 +17,14 @@ scale_color_ksnet_discrete(palette = "classic", reverse = FALSE, ...)
 Paleta discreta de colores de KSNET (color)
 }
 \examples{
-x <- c(1,2,3,4,5)
-y <-  rnorm(5, x, 0.5)
-mis_datos <- data.frame(x = x, y = y)
+library(ggplot2)
+library(dplyr)
+x <- c("A","B","C","D")
+y <- c(5, 8, 12,15)
+mis_datos <- data.frame(variable = x, valor = y)
 mis_datos \%>\%
-ggplot(aes(x = x, y = y, color = y)) +
-geom_point()
+ggplot(aes(x = variable, y = valor, color = variable)) +
+geom_point() +
 scale_color_ksnet_discrete() +
 theme_ksnet()
 
