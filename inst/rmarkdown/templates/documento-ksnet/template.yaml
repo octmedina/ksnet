@@ -1,4 +1,4 @@
 name: Documento KSNET
 description: >
-   A description of the template
-create_dir: FALSE
+   Plantilla de documento en Word de KSNET. Incluye ejemplos de contenido.
+create_dir: TRUE

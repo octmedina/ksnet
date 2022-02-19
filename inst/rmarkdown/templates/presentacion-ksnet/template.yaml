@@ -1,4 +1,4 @@
-name: Presentacion KSNET
+name: Presentación KSNET
 description: >
-   A description of the template
+   Plantilla de presentación de KSNET utilizando el paquete xaringan. Incluye ejemplos de contenido.
 create_dir: FALSE
