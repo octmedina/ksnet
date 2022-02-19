@@ -3,9 +3,10 @@ pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   color: color.html
+  documentos: documentos.html
   graficas: graficas.html
   tablas: tablas.html
-last_built: 2022-02-18T21:00Z
+last_built: 2022-02-19T15:29Z
 urls:
   reference: https://octmedina.github.io/ksnet/reference
   article: https://octmedina.github.io/ksnet/articles
