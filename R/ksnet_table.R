@@ -20,10 +20,10 @@ ksnet_table <- function(df){
             #table.background.color = "#BFBFBF",
             column_labels.background.color = "#00b2a9",
             column_labels.font.weight = "bold",
-            column_labels.font.size = gt::px(12),
+            column_labels.font.size = gt::px(10),
             table.font.size = gt::px(10),
             data_row.padding = gt::px(4),
-            table.width = gt::px(250)
+            #table.width = gt::px(250)
         ) %>%
         gt::tab_style(
             style = list(
