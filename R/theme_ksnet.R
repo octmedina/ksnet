@@ -37,28 +37,28 @@ theme_ksnet <- function(){
       #text elements
       plot.title = ggplot2::element_text(  #title
         #family = font,            #set font family
-        size = 20,                #set font size
+        size = 14,                #set font size
         face = 'bold',            #bold typeface
-        hjust = 0,                #left align
-        vjust = 1.5,               #raise slightly
+        hjust = 0.5,               # centered align
+        vjust = 0.5,               #raise slightly
         margin = ggplot2::margin(b = 8)),
 
       plot.subtitle = ggplot2::element_text(#subtitle
         #family = font,            #font family
-        hjust = 0,
-        vjust = 1,
+        hjust = 0.5,               # centered align
+        vjust = 0.5,
         size = 14,               #font size
         margin = ggplot2::margin(b = 18)),
 
       plot.caption = ggplot2::element_text(#caption
         #family = font,            #font family
         size = 9,                 #font size
-        hjust = 1),               #right align
+        hjust = 0),               #left align
 
       axis.title = ggplot2::element_text(  #axis titles
         #family = font,            #font family
         size = 10,               #font size
-        hjust = 1),
+        hjust = 0.5), # centered align
 
      # axis.title.y = ggplot2::element_text(
       #  margin = ggplot2::margin(b=2, r=2,t=2,l=2, unit='pt'),
@@ -77,7 +77,7 @@ theme_ksnet <- function(){
       #since the legend often requires manual tweaking
       #based on plot content, don't define it here
 
-      plot.margin = ggplot2::margin(10, 10, 10, 10),
+      plot.margin = ggplot2::margin(5, 5, 5, 5),
     plot.title.position = "plot"
 
     )
