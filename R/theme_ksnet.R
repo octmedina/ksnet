@@ -77,7 +77,7 @@ theme_ksnet <- function(){
       #since the legend often requires manual tweaking
       #based on plot content, don't define it here
 
-      plot.margin = ggplot2::margin(5, 5, 5, 5),
+      plot.margin = ggplot2::margin(1, 1, 1, 1),
     plot.title.position = "plot"
 
     )
