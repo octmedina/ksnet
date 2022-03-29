@@ -34,6 +34,9 @@
     <loc>https://octmedina.github.io/ksnet/reference/color_ksnet.html</loc>
   </url>
   <url>
+    <loc>https://octmedina.github.io/ksnet/reference/count_and_share.html</loc>
+  </url>
+  <url>
     <loc>https://octmedina.github.io/ksnet/reference/index.html</loc>
   </url>
   <url>
@@ -41,6 +44,9 @@
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/ksnet_hist.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/ksnet_line.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/ksnet_scatter.html</loc>
