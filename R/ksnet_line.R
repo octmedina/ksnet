@@ -21,13 +21,13 @@
 #'
 #' @importFrom rlang .data
 ksnet_line <- function(data, xvar, yvar, color = color_ksnet()[1]) {
-  
+
   gg <-
     ggplot2::ggplot(data) +
     ggplot2::aes(x = {{xvar}}, y = {{yvar}}, group = 1) +
     ggplot2::geom_line(color = color, size = 2) +
     theme_ksnet()
-  
+
   return(gg)
-  
+
 }
