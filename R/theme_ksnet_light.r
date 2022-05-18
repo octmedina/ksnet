@@ -1,0 +1,109 @@
+
+#' Theme KSNET fot ggplots
+#'
+#' This is one of the available ksnet themes for plots. Its parameters
+#' are just those specified within \code{theme} function. When an argument
+#' is not accesible with this function, it can be combined with another
+#' specific \code{theme}.
+#'
+#' @param legend_position character vector. Default is right.
+#' @param title_size numeric. Default 14.5.
+#' @param subtitle_size numeric. Default 12.5.
+#' @param x_size numeric. Axis title size. Default 12.5.
+#' @param y_size numeric. Axis title size. Default 12.5.
+#' @param axis_x_size numeric. Axis text size. Default 12.
+#' @param axis_y_size numeric. Axis text size. Default 12.
+#' @param x_vjust numeric. Default 4.
+#' @param remove_grid_major_y logical. Default TRUE.
+#' @param remove_grid_major_x logical. Default TRUE.
+#' @param is_x_date when x axis represents a date vector set to TRUE to adjust vjust.
+#' @param font_family default is Public Sants. But is is necessary to have it installed. See Details.
+#'
+#' @details
+#' At the beginning of your script, after having installed Public Sans font, you should
+#' write the following code to load the font:
+#' windowsFonts('Public Sans'='Public Sans')
+#'
+#' @return
+#' An object of class gg theme to add for an existing ggplot object.
+#'
+#'
+#' @export
+#'
+#' @examples
+#' library(ggplot2)
+#'
+#' ggplot(mtcars,aes(mpg))+
+#'   geom_density()+
+#'   theme_ksnet_light()
+#'
+#' ggplot(mtcars,aes(mpg))+
+#'   geom_density()+
+#'   theme_ksnet_light(remove_grid_major_x = FALSE)
+#'
+#'
+theme_ksnet_light <- function(legend_position='right',
+                              title_size=14.5,
+                              subtitle_size=12.5,
+                              x_size=12.5,
+                              y_size=12.5,
+                              axis_x_size=12,
+                              axis_y_size=12,
+                              x_vjust=4,
+                              remove_grid_major_y = TRUE,
+                              remove_grid_major_x = TRUE,
+                              is_x_date = FALSE,
+                              plot_font= 'Public Sans'
+){
+    tema <- theme_minimal()+
+        theme(
+            plot.title = element_text(size=title_size,face='bold',family = plot_font) ,
+            plot.subtitle = element_text(size = subtitle_size, family = plot_font),
+
+            axis.title.y = element_text(size=x_size),
+            axis.title.x = element_text(size=y_size),
+
+            axis.text.x = element_text(size=axis_x_size,vjust=x_vjust),
+            axis.text.y = element_text(size=axis_y_size),
+
+            plot.caption = element_text(size= c(8.5,9) , hjust=c(0,1),
+                                        colour = rgb(0,0,0,.65),
+                                        family = plot_font),
+            strip.text = element_text(size=13),
+            legend.position =legend_position, legend.text = element_text(size=13),
+
+            title=element_text( family = plot_font),
+            text=element_text( family = plot_font),
+
+            panel.grid.minor = element_blank()
+
+        )
+    if( remove_grid_major_y ){
+        tema <- tema + theme( panel.grid.major.y = element_blank() )
+    }
+    if( remove_grid_major_x ){
+        tema <- tema + theme( panel.grid.major.x = element_blank() )
+    }
+    if( is_x_date ){
+        tema <- tema + theme( axis.text.x = element_text(size=axis_x_size,
+                                                         vjust=1) )
+    }
+
+    return(tema)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
