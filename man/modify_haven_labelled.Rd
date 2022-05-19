@@ -2,20 +2,20 @@
 % Please edit documentation in R/modify_haven_labelled.r
 \name{modify_haven_labelled}
 \alias{modify_haven_labelled}
-\alias{modify_haven_labelled.default}
-\alias{modify_haven_labelled.data.frame}
 \title{Adjust STATA objects to R format}
 \usage{
-modify_haven_labelled(obj, to = c("numeric", "character", "logical"))
-
-\method{modify_haven_labelled}{default}(obj, to = c("numeric", "character", "logical"))
-
-\method{modify_haven_labelled}{data.frame}(obj, to = c("numeric", "character", "logical"))
+modify_haven_labelled(
+  obj,
+  new_class = c("numeric", "character", "logical"),
+  return_labels = TRUE
+)
 }
 \arguments{
-\item{obj}{a dataframe or a vector}
+\item{obj}{A dataframe or a vector}
 
-\item{to}{the desired class. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.}
+\item{new_class}{The desired class of the vector/variables. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.}
+
+\item{return_labels}{Logical. Return variable values as integers or with its labels. Default TRUE.}
 }
 \value{
 The same object with its changed class.

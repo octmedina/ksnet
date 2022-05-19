@@ -8,9 +8,9 @@
 #' is not necessary to previously select the columns, since the function detects which
 #' variables need to be modified.
 #'
-#' @param obj a dataframe or a vector
-#' @param to the desired class. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.
-#'
+#' @param obj A dataframe or a vector
+#' @param new_class The desired class of the vector/variables. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.
+#' @param return_labels Logical. Return variable values as integers or with its labels. Default TRUE.
 #' @return The same object with its changed class.
 #' @export
 #'
@@ -32,42 +32,94 @@
 #'    mutate( situacion_hogar = modify_haven_labelled( situacion_hogar )  )
 
 
-modify_haven_labelled <- function(obj,to = c('numeric','character','logical') ){
-    UseMethod('modify_haven_labelled')
-}
 
+modify_haven_labelled <- function(obj,new_class = c('numeric','character','logical'),
+                                  return_labels = TRUE){
 
-#' @rdname modify_haven_labelled
-#' @export
-modify_haven_labelled.default <- function(obj, to = c('numeric','character','logical')){
-    convert_class(obj, to)
-}
+    new_class <- match.arg(new_class, c('numeric','character','logical') )
 
-#' @rdname modify_haven_labelled
-#' @export
-modify_haven_labelled.data.frame <- function(obj, to = c('numeric','character','logical')){
-    to <- match.arg(to, c('numeric','character','logical') )
+    if( !is.data.frame(obj) ){
+        attr_labels <- attr(obj,'labels')
+        x_labels <- names(attr_labels)
+        names(x_labels) <- attr_labels
 
-    for (i in seq_along(obj)) {
-        if( class(obj[[i]])[1] != "haven_labelled" ){
-            next
-        } else{
-            obj[[i]] <- convert_class(obj[[i]], to)
+        attr(obj,'format.stata') <- NULL
+        attr(obj,'label') <- NULL
+        attr(obj,'labels') <- NULL
+        class(obj) <- new_class
+
+        if( return_labels ){
+            obj <- x_labels[ obj ]
+            names(obj) <- NULL
+        }
+
+    } else if( is.data.frame(obj) ){
+
+        for (i in seq_along(obj)) {
+
+            if( class(obj[[i]])[1] != "haven_labelled" ){
+                next
+            } else{
+
+                obj[[i]] <- modify_haven_labelled(obj[[i]], new_class, return_labels)
+
+            }
         }
 
     }
     return(obj)
 }
 
+# FUNCION ANTERIOR SIGUIENDO LA LOGICA DE METODOS:
+#' modify_haven_labelled <- function(obj,to = c('numeric','character','logical'),
+#'                                   return_labels = TRUE){
+#'     UseMethod('modify_haven_labelled')
+#' }
 #'
-convert_class <- function(x, new_class = c('numeric','character','logical')){
-
-    new_class <- match.arg(new_class, c('numeric','character','logical') )
-
-    attr(x,'format.stata') <- NULL
-    attr(x,'label') <- NULL
-    attr(x,'labels') <- NULL
-    class(x) <- new_class
-    return(x)
-}
-
+#'
+#' #'  rdname modify_haven_labelled
+#' #'  export
+#' modify_haven_labelled.default <- function(obj, to = c('numeric','character','logical'),
+#'                                           return_labels){
+#'     convert_class(obj, to, returnLabels = return_labels)
+#' }
+#'
+#' #' rdname modify_haven_labelled
+#' #' export
+#' modify_haven_labelled.data.frame <- function(obj, to = c('numeric','character','logical'),
+#'                                              return_labels ){
+#'     to <- match.arg(to, c('numeric','character','logical') )
+#'
+#'     for (i in seq_along(obj)) {
+#'         if( class(obj[[i]])[1] != "haven_labelled" ){
+#'             next
+#'         } else{
+#'             obj[[i]] <- convert_class(obj[[i]], to, returnLabels = return_labels)
+#'         }
+#'
+#'     }
+#'     return(obj)
+#' }
+#'
+#' #'
+#' convert_class <- function(x, new_class = c('numeric','character','logical'),
+#'                           returnLabels ){
+#'
+#'     new_class <- match.arg(new_class, c('numeric','character','logical') )
+#'
+#'
+#'     attr_labels <- attr(x,'labels')
+#'     x_labels <- names(attr_labels)
+#'     names(x_labels) <- attr_labels
+#'
+#'     attr(x,'format.stata') <- NULL
+#'     attr(x,'label') <- NULL
+#'     attr(x,'labels') <- NULL
+#'     class(x) <- new_class
+#'
+#'     if( returnLabels ){
+#'         x <- x_labels[ x ]
+#'         names(x) <- NULL
+#'     }
+#'     return(x)
+#' }
