@@ -49,8 +49,7 @@ scrape_catastro <- function(url, ID=NA_character_, i = NULL, verbose = FALSE){
 
         if( !is.null(i) & verbose ) print(paste0('Iteration: ', i))
 
-        html_temp <- read_html(url)
-        html_temp_body <- html_temp %>%
+        html_temp_body <- read_html(url) %>%
             html_element('body')
 
         ## extraer la información de la parcela catastral

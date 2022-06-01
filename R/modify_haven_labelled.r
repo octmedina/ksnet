@@ -9,8 +9,8 @@
 #' variables need to be modified.
 #'
 #' @param obj A dataframe or a vector
-#' @param new_class The desired class of the vector/variables. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.
-#' @param return_labels Logical. Return variable values as integers or with its labels. Default TRUE.
+#' @param return_labels Logical. Return variable values as integers or with its labels. Default TRUE (labels).
+#' @param new_class When `return_lavels` set to FALSE, The desired class of the vector/variables. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.
 #' @return The same object with its changed class.
 #' @export
 #'
@@ -31,14 +31,14 @@
 #' ecv2020 <- ecv2020 %>%
 #'    mutate( situacion_hogar = modify_haven_labelled( situacion_hogar )  )
 
-
-
-modify_haven_labelled <- function(obj,new_class = c('numeric','character','logical'),
-                                  return_labels = TRUE){
-
-    new_class <- match.arg(new_class, c('numeric','character','logical') )
+modify_haven_labelled <- function(obj, new_return_labels = TRUE,
+                                  class = c('numeric','character','logical'),
+){
 
     if( !is.data.frame(obj) ){
+
+        new_class <- match.arg(new_class, c('numeric','character','logical') )
+
         attr_labels <- attr(obj,'labels')
         x_labels <- names(attr_labels)
         names(x_labels) <- attr_labels
@@ -49,25 +49,28 @@ modify_haven_labelled <- function(obj,new_class = c('numeric','character','logic
         class(obj) <- new_class
 
         if( return_labels ){
-            obj <- x_labels[ obj ]
+            obj <- x_labels[ as.character(obj) ]
             names(obj) <- NULL
         }
+        return(obj)
 
     } else if( is.data.frame(obj) ){
 
-        for (i in seq_along(obj)) {
+        for (i in seq_len(ncol(obj)) ) {
 
-            if( class(obj[[i]])[1] != "haven_labelled" ){
+            var_temp <- obj[[i]]
+
+            if( class(var_temp)[1] != "haven_labelled" ){
                 next
             } else{
 
-                obj[[i]] <- modify_haven_labelled(obj[[i]], new_class, return_labels)
+                obj[[i]] <- modify_haven_labelled(var_temp, new_class, return_labels)
 
             }
         }
-
+        return(obj)
     }
-    return(obj)
+
 }
 
 # FUNCION ANTERIOR SIGUIENDO LA LOGICA DE METODOS:
