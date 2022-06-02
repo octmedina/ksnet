@@ -2,9 +2,18 @@
 % Please edit documentation in R/generate_synthetic_object.r
 \name{generate_synthetic_object}
 \alias{generate_synthetic_object}
+\alias{generate_synthetic_object.default}
+\alias{generate_synthetic_object.numeric}
+\alias{generate_synthetic_object.data.frame}
 \title{Generate synthetic vectors from their sampling distributions}
 \usage{
 generate_synthetic_object(obj, seed = NULL, n_news = NULL)
+
+\method{generate_synthetic_object}{default}(obj, seed = NULL, n_news = NULL)
+
+\method{generate_synthetic_object}{numeric}(obj, seed = NULL, n_news = NULL)
+
+\method{generate_synthetic_object}{data.frame}(obj, seed = NULL, n_news = NULL)
 }
 \arguments{
 \item{obj}{A dataframe, numeric vector or character/factor vector.}

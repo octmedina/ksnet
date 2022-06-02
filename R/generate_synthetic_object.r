@@ -27,6 +27,10 @@ generate_synthetic_object <- function(obj, seed = NULL, n_news = NULL){
 }
 
 
+
+#' @rdname generate_synthetic_object
+#' @export
+
 generate_synthetic_object.default <- function(obj, seed = NULL, n_news = NULL ){
     # for character and factor vectors
     if(is.null(n_news)) n_news <- length(obj)
@@ -41,6 +45,9 @@ generate_synthetic_object.default <- function(obj, seed = NULL, n_news = NULL ){
     return(new_values)
 }
 
+
+#' @rdname generate_synthetic_object
+#' @export
 
 generate_synthetic_object.numeric <- function(obj, seed = NULL, n_news = NULL){
 
@@ -62,6 +69,8 @@ generate_synthetic_object.numeric <- function(obj, seed = NULL, n_news = NULL){
 }
 
 
+#' @rdname generate_synthetic_object
+#' @export
 generate_synthetic_object.data.frame <- function(obj, seed = NULL, n_news = NULL){
     synthetic_obj <- vector('list', ncol(obj))
     names(synthetic_obj) <- names(obj)
@@ -77,17 +86,6 @@ generate_synthetic_object.data.frame <- function(obj, seed = NULL, n_news = NULL
 
     return(synthetic_obj)
 }
-
-#' decimalplaces
-#'
-#' @param x
-decimalplaces <- Vectorize(function(x) {
-    if ((x %% 1) != 0) {
-        nchar(strsplit(sub('0+$', '', as.character(x)), ".", fixed=TRUE)[[1]][[2]])
-    } else {
-        return(0)
-    }
-},vectorize.args = 'x')
 
 
 
