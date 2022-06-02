@@ -72,20 +72,94 @@ missing data. Read <code><a href="generate_synthetic_object.html">help(generate_
     <div class="section level2">
     <h2 id="ref-examples">Ejemplos<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">impute_random</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">123</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in impute_random(c(mtcars$mpg, NA, NA, NA, NA, NA), seed = 123):</span> no se pudo encontrar la función "impute_random"</span>
+<span class="r-in"><span class="fu">impute_by_sampling_distribution</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 15.0 21.4 19.7 17.3 15.1 18.7 21.6</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">data_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span class="r-in">    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span><span class="op">)</span>,</span>
 <span class="r-in">    y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="fu">impute_random</span><span class="op">(</span><span class="va">data_temp</span>,set_seed <span class="op">=</span> <span class="fl">123</span><span class="op">)</span> <span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in impute_random(data_temp, set_seed = 123):</span> no se pudo encontrar la función "impute_random"</span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="fu">impute_by_sampling_distribution</span><span class="op">(</span><span class="va">data_temp</span><span class="op">)</span> <span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       x y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  21.0 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  21.0 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  22.8 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  21.4 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  18.7 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  18.1 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  14.3 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  24.4 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  22.8 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 19.2 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 17.8 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 16.4 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 17.3 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 15.2 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 10.4 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 10.4 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 14.7 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 32.4 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 30.4 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 33.9 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 21.5 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 15.5 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 15.2 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 13.3 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 19.2 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 27.3 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 26.0 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 30.4 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 15.8 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 19.7 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 15.0 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 21.4 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 23.0 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 11.0 7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 19.3 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 12.8 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 25.4 5</span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">data_temp</span>, x_impute <span class="op">=</span> <span class="fu">impute_random</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::mutate(data_temp, x_impute = impute_random(x)):</span> Problem while computing `x_impute = impute_random(x)`.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `impute_random()`:</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> no se pudo encontrar la función "impute_random"</span>
+<span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">data_temp</span>, x_impute <span class="op">=</span> <span class="fu">impute_by_sampling_distribution</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       x  y x_impute</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  21.0  6     21.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  21.0  6     21.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  22.8  4     22.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  21.4  6     21.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  18.7  8     18.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  18.1  6     18.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  14.3  8     14.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  24.4  4     24.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  22.8  4     22.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 19.2  6     19.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 17.8  6     17.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 16.4  8     16.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 17.3  8     17.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 15.2  8     15.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 10.4  8     10.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 10.4  8     10.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 14.7  8     14.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 32.4  4     32.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 30.4  4     30.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 33.9  4     33.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 21.5  4     21.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 15.5  8     15.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 15.2  8     15.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 13.3  8     13.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 19.2  8     19.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 27.3  4     27.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 26.0  4     26.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 30.4  4     30.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 15.8  8     15.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 19.7  6     19.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 15.0  8     15.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 21.4  4     21.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33   NA NA     24.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34   NA NA     16.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35   NA NA     13.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36   NA NA     25.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37   NA NA     11.5</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>En esta página</h2>
