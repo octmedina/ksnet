@@ -1,3 +1,5 @@
+
+
 #' Imput missing values by variable samplingd distribution
 #'
 #' This function take advantage of `generate_synthetic_object` to impute
@@ -9,6 +11,8 @@
 #'
 #' @return
 #' The same object without NA values as they have been imputed.
+#'
+#' @export
 #'
 #' @examples
 #'
