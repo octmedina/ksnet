@@ -31,9 +31,7 @@
 #' ecv2020 <- ecv2020 %>%
 #'    mutate( situacion_hogar = modify_haven_labelled( situacion_hogar )  )
 
-modify_haven_labelled <- function(obj, new_return_labels = TRUE,
-                                  class = c('numeric','character','logical'),
-){
+modify_haven_labelled <- function(obj, new_return_labels = TRUE,class = c('numeric','character','logical')){
 
     if( !is.data.frame(obj) ){
 

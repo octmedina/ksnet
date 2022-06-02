@@ -6,16 +6,16 @@
 \usage{
 modify_haven_labelled(
   obj,
-  new_class = c("numeric", "character", "logical"),
-  return_labels = TRUE
+  new_return_labels = TRUE,
+  class = c("numeric", "character", "logical")
 )
 }
 \arguments{
 \item{obj}{A dataframe or a vector}
 
-\item{new_class}{The desired class of the vector/variables. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.}
+\item{return_labels}{Logical. Return variable values as integers or with its labels. Default TRUE (labels).}
 
-\item{return_labels}{Logical. Return variable values as integers or with its labels. Default TRUE.}
+\item{new_class}{When \code{return_lavels} set to FALSE, The desired class of the vector/variables. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.}
 }
 \value{
 The same object with its changed class.
