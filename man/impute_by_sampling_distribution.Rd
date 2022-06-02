@@ -20,13 +20,13 @@ missing data. Read \code{help(generate_synthetic_object)} for more information.
 }
 \examples{
 
-impute_random(c(mtcars$mpg,NA,NA,NA,NA,NA), seed = 123)
+impute_by_sampling_distribution(c(mtcars$mpg,NA,NA,NA,NA,NA))
 
 data_temp <- data.frame(
     x = c(mtcars$mpg,NA,NA,NA,NA,NA),
     y = c(mtcars$cyl,NA,NA,NA,NA,NA))
 
-as.data.frame(impute_random(data_temp,set_seed = 123) )
+as.data.frame(impute_by_sampling_distribution(data_temp) )
 
-dplyr::mutate(data_temp, x_impute = impute_random(x))
+dplyr::mutate(data_temp, x_impute = impute_by_sampling_distribution(x))
 }
