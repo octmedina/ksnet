@@ -7,5 +7,5 @@
 clean_info_inmuebles(x)
 }
 \description{
-clean_info_inmuebles
+Internal function
 }

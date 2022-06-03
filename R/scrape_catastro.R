@@ -73,8 +73,7 @@ scrape_catastro <- function(url, ID=NA_character_, i = NULL, verbose = FALSE){
             mutate( 'ID' = ID, categoria = 'parcela', .before = 1 )
 
         ## extraer la información de los inmuebles relacionados con la parcela
-        inmuebles_temp <- html_temp %>%
-            html_element('body') %>%
+        inmuebles_temp <- html_temp_body %>%
             html_elements( css=".panel.panel-default") %>%
             html_text2()
 
@@ -99,8 +98,11 @@ scrape_catastro <- function(url, ID=NA_character_, i = NULL, verbose = FALSE){
 }
 
 
-
 #' clean_info_inmuebles
+#'
+#' Internal function
+#'
+#' @param x
 clean_info_inmuebles <- function(x){
 
     referencia_catastral <- stringr::str_sub(x,1,20)
