@@ -6,8 +6,8 @@
 \usage{
 modify_haven_labelled(
   obj,
-  new_return_labels = TRUE,
-  class = c("numeric", "character", "logical")
+  return_labels = TRUE,
+  new_class = c("numeric", "character", "logical")
 )
 }
 \arguments{
