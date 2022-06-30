@@ -33,9 +33,9 @@
 
 modify_haven_labelled <- function(obj, return_labels = TRUE,new_class = c('numeric','character','logical')){
 
-    if( !is.data.frame(obj) ){
+    new_class <- match.arg(new_class, c('numeric','character','logical') )
 
-        new_class <- match.arg(new_class, c('numeric','character','logical') )
+    if( !is.data.frame(obj) ){
 
         attr_labels <- attr(obj,'labels')
         x_labels <- names(attr_labels)
@@ -61,7 +61,6 @@ modify_haven_labelled <- function(obj, return_labels = TRUE,new_class = c('numer
             if( class(var_temp)[1] != "haven_labelled" ){
                 next
             } else{
-
                 obj[[i]] <- modify_haven_labelled(obj = var_temp, return_labels = return_labels, new_class = new_class )
 
             }
