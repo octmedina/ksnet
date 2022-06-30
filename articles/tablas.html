@@ -62,7 +62,7 @@
 
 
 <script src="tablas_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <main id="main"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Tablas</h1>
             
       
@@ -73,30 +73,30 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://octmedina.github.io/ksnet/">ksnet</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'dplyr'</span>
-<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     filter, lag</span>
-<span class="co">#&gt; The following objects are masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/" class="external-link">palmerpenguins</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://octmedina.github.io/ksnet/">ksnet</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/" class="external-link">palmerpenguins</a></span><span class="op">)</span></span></code></pre></div>
 <p>El paquete también incluye estilos para tablas (usando el paquete <code>gt</code>).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"> 
- <span class="va">penguins</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-     <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">island</span>, <span class="va">species</span>, <span class="va">body_mass_g</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-     <span class="fu"><a href="../reference/ksnet_table.html">ksnet_table</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="nxzkokrnsw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<code class="sourceCode R"><span> </span>
+<span> <span class="va">penguins</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>     <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">island</span>, <span class="va">species</span>, <span class="va">body_mass_g</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>     <span class="fu"><a href="../reference/ksnet_table.html">ksnet_table</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div id="kyfqgssmcv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#nxzkokrnsw .gt_table {
+#kyfqgssmcv .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -121,7 +121,7 @@
   border-left-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_heading {
+#kyfqgssmcv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -133,7 +133,7 @@
   border-right-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_title {
+#kyfqgssmcv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -145,7 +145,7 @@
   border-bottom-width: 0;
 }
 
-#nxzkokrnsw .gt_subtitle {
+#kyfqgssmcv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -157,13 +157,13 @@
   border-top-width: 0;
 }
 
-#nxzkokrnsw .gt_bottom_border {
+#kyfqgssmcv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_col_headings {
+#kyfqgssmcv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -178,7 +178,7 @@
   border-right-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_col_heading {
+#kyfqgssmcv .gt_col_heading {
   color: #FFFFFF;
   background-color: #00B2A9;
   font-size: 10px;
@@ -198,7 +198,7 @@
   overflow-x: hidden;
 }
 
-#nxzkokrnsw .gt_column_spanner_outer {
+#kyfqgssmcv .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #00B2A9;
   font-size: 10px;
@@ -210,15 +210,15 @@
   padding-right: 4px;
 }
 
-#nxzkokrnsw .gt_column_spanner_outer:first-child {
+#kyfqgssmcv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nxzkokrnsw .gt_column_spanner_outer:last-child {
+#kyfqgssmcv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nxzkokrnsw .gt_column_spanner {
+#kyfqgssmcv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -230,7 +230,7 @@
   width: 100%;
 }
 
-#nxzkokrnsw .gt_group_heading {
+#kyfqgssmcv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -255,7 +255,7 @@
   vertical-align: middle;
 }
 
-#nxzkokrnsw .gt_empty_group_heading {
+#kyfqgssmcv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -270,15 +270,15 @@
   vertical-align: middle;
 }
 
-#nxzkokrnsw .gt_from_md > :first-child {
+#kyfqgssmcv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nxzkokrnsw .gt_from_md > :last-child {
+#kyfqgssmcv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nxzkokrnsw .gt_row {
+#kyfqgssmcv .gt_row {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
@@ -297,7 +297,7 @@
   overflow-x: hidden;
 }
 
-#nxzkokrnsw .gt_stub {
+#kyfqgssmcv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -310,7 +310,7 @@
   padding-right: 5px;
 }
 
-#nxzkokrnsw .gt_stub_row_group {
+#kyfqgssmcv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -324,11 +324,11 @@
   vertical-align: top;
 }
 
-#nxzkokrnsw .gt_row_group_first td {
+#kyfqgssmcv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nxzkokrnsw .gt_summary_row {
+#kyfqgssmcv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -338,16 +338,16 @@
   padding-right: 5px;
 }
 
-#nxzkokrnsw .gt_first_summary_row {
+#kyfqgssmcv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_first_summary_row.thick {
+#kyfqgssmcv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nxzkokrnsw .gt_last_summary_row {
+#kyfqgssmcv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -357,7 +357,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_grand_summary_row {
+#kyfqgssmcv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -367,7 +367,7 @@
   padding-right: 5px;
 }
 
-#nxzkokrnsw .gt_first_grand_summary_row {
+#kyfqgssmcv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -377,11 +377,11 @@
   border-top-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_striped {
+#kyfqgssmcv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nxzkokrnsw .gt_table_body {
+#kyfqgssmcv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -390,7 +390,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_footnotes {
+#kyfqgssmcv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -404,7 +404,7 @@
   border-right-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_footnote {
+#kyfqgssmcv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -413,7 +413,7 @@
   padding-right: 5px;
 }
 
-#nxzkokrnsw .gt_sourcenotes {
+#kyfqgssmcv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -427,7 +427,7 @@
   border-right-color: #D3D3D3;
 }
 
-#nxzkokrnsw .gt_sourcenote {
+#kyfqgssmcv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -435,36 +435,36 @@
   padding-right: 5px;
 }
 
-#nxzkokrnsw .gt_left {
+#kyfqgssmcv .gt_left {
   text-align: left;
 }
 
-#nxzkokrnsw .gt_center {
+#kyfqgssmcv .gt_center {
   text-align: center;
 }
 
-#nxzkokrnsw .gt_right {
+#kyfqgssmcv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nxzkokrnsw .gt_font_normal {
+#kyfqgssmcv .gt_font_normal {
   font-weight: normal;
 }
 
-#nxzkokrnsw .gt_font_bold {
+#kyfqgssmcv .gt_font_bold {
   font-weight: bold;
 }
 
-#nxzkokrnsw .gt_font_italic {
+#kyfqgssmcv .gt_font_italic {
   font-style: italic;
 }
 
-#nxzkokrnsw .gt_super {
+#kyfqgssmcv .gt_super {
   font-size: 65%;
 }
 
-#nxzkokrnsw .gt_two_val_uncert {
+#kyfqgssmcv .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -473,31 +473,31 @@
   margin-left: 0.1em;
 }
 
-#nxzkokrnsw .gt_footnote_marks {
+#kyfqgssmcv .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#nxzkokrnsw .gt_asterisk {
+#kyfqgssmcv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nxzkokrnsw .gt_slash_mark {
+#kyfqgssmcv .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#nxzkokrnsw .gt_fraction_numerator {
+#kyfqgssmcv .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#nxzkokrnsw .gt_fraction_denominator {
+#kyfqgssmcv .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -545,20 +545,20 @@
 </div>
 <p>Si utilizamos <code>group_by</code> para agrupar variables, se crearán filas de grupo automáticamente:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"> 
- <span class="va">penguins</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">island</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>mean_mass <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
-               sd_mass <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-     <span class="fu"><a href="../reference/ksnet_table.html">ksnet_table</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; `summarise()` has grouped output by 'species'. You can override using the</span>
-<span class="co">#&gt; `.groups` argument.</span></code></pre></div>
-<div id="hhnrpkwviy" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<code class="sourceCode R"><span> </span>
+<span> <span class="va">penguins</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">island</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>mean_mass <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>               sd_mass <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>     <span class="fu"><a href="../reference/ksnet_table.html">ksnet_table</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `summarise()` has grouped output by 'species'. You can override using the</span></span>
+<span><span class="co">#&gt; `.groups` argument.</span></span></code></pre></div>
+<div id="lyuzucqssn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hhnrpkwviy .gt_table {
+#lyuzucqssn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -583,7 +583,7 @@
   border-left-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_heading {
+#lyuzucqssn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -595,7 +595,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_title {
+#lyuzucqssn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -607,7 +607,7 @@
   border-bottom-width: 0;
 }
 
-#hhnrpkwviy .gt_subtitle {
+#lyuzucqssn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -619,13 +619,13 @@
   border-top-width: 0;
 }
 
-#hhnrpkwviy .gt_bottom_border {
+#lyuzucqssn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_col_headings {
+#lyuzucqssn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -640,7 +640,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_col_heading {
+#lyuzucqssn .gt_col_heading {
   color: #FFFFFF;
   background-color: #00B2A9;
   font-size: 10px;
@@ -660,7 +660,7 @@
   overflow-x: hidden;
 }
 
-#hhnrpkwviy .gt_column_spanner_outer {
+#lyuzucqssn .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #00B2A9;
   font-size: 10px;
@@ -672,15 +672,15 @@
   padding-right: 4px;
 }
 
-#hhnrpkwviy .gt_column_spanner_outer:first-child {
+#lyuzucqssn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hhnrpkwviy .gt_column_spanner_outer:last-child {
+#lyuzucqssn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hhnrpkwviy .gt_column_spanner {
+#lyuzucqssn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -692,7 +692,7 @@
   width: 100%;
 }
 
-#hhnrpkwviy .gt_group_heading {
+#lyuzucqssn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -717,7 +717,7 @@
   vertical-align: middle;
 }
 
-#hhnrpkwviy .gt_empty_group_heading {
+#lyuzucqssn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -732,15 +732,15 @@
   vertical-align: middle;
 }
 
-#hhnrpkwviy .gt_from_md > :first-child {
+#lyuzucqssn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hhnrpkwviy .gt_from_md > :last-child {
+#lyuzucqssn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hhnrpkwviy .gt_row {
+#lyuzucqssn .gt_row {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
@@ -759,7 +759,7 @@
   overflow-x: hidden;
 }
 
-#hhnrpkwviy .gt_stub {
+#lyuzucqssn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -772,7 +772,7 @@
   padding-right: 5px;
 }
 
-#hhnrpkwviy .gt_stub_row_group {
+#lyuzucqssn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -786,11 +786,11 @@
   vertical-align: top;
 }
 
-#hhnrpkwviy .gt_row_group_first td {
+#lyuzucqssn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hhnrpkwviy .gt_summary_row {
+#lyuzucqssn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -800,16 +800,16 @@
   padding-right: 5px;
 }
 
-#hhnrpkwviy .gt_first_summary_row {
+#lyuzucqssn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_first_summary_row.thick {
+#lyuzucqssn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hhnrpkwviy .gt_last_summary_row {
+#lyuzucqssn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -819,7 +819,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_grand_summary_row {
+#lyuzucqssn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -829,7 +829,7 @@
   padding-right: 5px;
 }
 
-#hhnrpkwviy .gt_first_grand_summary_row {
+#lyuzucqssn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -839,11 +839,11 @@
   border-top-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_striped {
+#lyuzucqssn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hhnrpkwviy .gt_table_body {
+#lyuzucqssn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -852,7 +852,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_footnotes {
+#lyuzucqssn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -866,7 +866,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_footnote {
+#lyuzucqssn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -875,7 +875,7 @@
   padding-right: 5px;
 }
 
-#hhnrpkwviy .gt_sourcenotes {
+#lyuzucqssn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -889,7 +889,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hhnrpkwviy .gt_sourcenote {
+#lyuzucqssn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -897,36 +897,36 @@
   padding-right: 5px;
 }
 
-#hhnrpkwviy .gt_left {
+#lyuzucqssn .gt_left {
   text-align: left;
 }
 
-#hhnrpkwviy .gt_center {
+#lyuzucqssn .gt_center {
   text-align: center;
 }
 
-#hhnrpkwviy .gt_right {
+#lyuzucqssn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hhnrpkwviy .gt_font_normal {
+#lyuzucqssn .gt_font_normal {
   font-weight: normal;
 }
 
-#hhnrpkwviy .gt_font_bold {
+#lyuzucqssn .gt_font_bold {
   font-weight: bold;
 }
 
-#hhnrpkwviy .gt_font_italic {
+#lyuzucqssn .gt_font_italic {
   font-style: italic;
 }
 
-#hhnrpkwviy .gt_super {
+#lyuzucqssn .gt_super {
   font-size: 65%;
 }
 
-#hhnrpkwviy .gt_two_val_uncert {
+#lyuzucqssn .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -935,31 +935,31 @@
   margin-left: 0.1em;
 }
 
-#hhnrpkwviy .gt_footnote_marks {
+#lyuzucqssn .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#hhnrpkwviy .gt_asterisk {
+#lyuzucqssn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hhnrpkwviy .gt_slash_mark {
+#lyuzucqssn .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#hhnrpkwviy .gt_fraction_numerator {
+#lyuzucqssn .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#hhnrpkwviy .gt_fraction_denominator {
+#lyuzucqssn .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1021,7 +1021,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Sitio creado con <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Sitio creado con <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer>

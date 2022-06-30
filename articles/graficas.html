@@ -62,7 +62,7 @@
 
 
 <script src="graficas_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <main id="main"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Gráficas</h1>
             
       
@@ -73,48 +73,48 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://octmedina.github.io/ksnet/">ksnet</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/" class="external-link">palmerpenguins</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://octmedina.github.io/ksnet/">ksnet</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/" class="external-link">palmerpenguins</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="gráficos">Gráficos<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos"></a>
 </h2>
 <p>Este es un ejemplo básico que muestra cómo resolver un problema común: hacer una gráfica con datos. Empecemos con un histograma.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Plotting a histogram of penguin bill length</span>
-
-<span class="fu"><a href="../reference/ksnet_hist.html">ksnet_hist</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">bill_length_mm</span><span class="op">)</span> 
-<span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span>
-<span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_bin).</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Plotting a histogram of penguin bill length</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/ksnet_hist.html">ksnet_hist</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">bill_length_mm</span><span class="op">)</span> </span>
+<span><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_bin).</span></span></code></pre></div>
 <p><img src="graficas_files/figure-html/plots1-1.png" width="2187.5"></p>
 <p>La función se puede usar con la pipe también. Aquí hay una gráfica de barra.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'dplyr'</span>
-<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     filter, lag</span>
-<span class="co">#&gt; The following objects are masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
-
-<span class="co">## Simple barplot</span>
-<span class="va">penguins</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="../reference/ksnet_bar.html">ksnet_bar</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">n</span><span class="op">)</span> </code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span></span>
+<span><span class="co">## Simple barplot</span></span>
+<span><span class="va">penguins</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="../reference/ksnet_bar.html">ksnet_bar</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">n</span><span class="op">)</span> </span></code></pre></div>
 <p><img src="graficas_files/figure-html/plots2-1.png" width="2187.5"></p>
 <p>Y finalmente, scatterplots. La función viene preparada para incluir el color estándar de KSNET, así como la plantilla de gráficos. El objeto que genera es un <code>ggplot</code>, así que se pueden añadir títulos y etiquetas fácilmente:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co">## Simple scatterplot</span>
-<span class="va">penguins</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="../reference/ksnet_scatter.html">ksnet_scatter</a></span><span class="op">(</span><span class="va">bill_length_mm</span>, <span class="va">flipper_length_mm</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Pingüinos KSNET"</span>,
-         subtitle <span class="op">=</span> <span class="st">"Según con la EPA"</span><span class="op">)</span>
-<span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="co">## Simple scatterplot</span></span>
+<span><span class="va">penguins</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="../reference/ksnet_scatter.html">ksnet_scatter</a></span><span class="op">(</span><span class="va">bill_length_mm</span>, <span class="va">flipper_length_mm</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Pingüinos KSNET"</span>,</span>
+<span>         subtitle <span class="op">=</span> <span class="st">"Según con la EPA"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></span></code></pre></div>
 <p><img src="graficas_files/figure-html/plots3-1.png" width="2187.5"></p>
 </div>
 <div class="section level2">
@@ -122,12 +122,12 @@
 </h2>
 <p>También podemos utilizar <code>themes</code>, o plantillas de gráficas.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="../reference/ksnet_scatter.html">ksnet_scatter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">bill_length_mm</span>, <span class="va">flipper_length_mm</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Esto es un ejemplo"</span>,
-       subtitle <span class="op">=</span> <span class="st">"Y esto un subtítulo"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="../reference/theme_ksnet.html">theme_ksnet</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="../reference/ksnet_scatter.html">ksnet_scatter</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="va">bill_length_mm</span>, <span class="va">flipper_length_mm</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Esto es un ejemplo"</span>,</span>
+<span>       subtitle <span class="op">=</span> <span class="st">"Y esto un subtítulo"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_ksnet.html">theme_ksnet</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></span></code></pre></div>
 <p><img src="graficas_files/figure-html/themes1-1.png" width="2400"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>En esta página</h2>
@@ -143,7 +143,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Sitio creado con <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Sitio creado con <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer>

@@ -54,23 +54,32 @@ real estates from Catastro, for example <a href="https://www1.sedecatastro.gob.e
 
     <div class="section level2">
     <h2 id="ref-usage">Uso<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">scrape_catastro</span><span class="op">(</span><span class="va">url</span>, ID <span class="op">=</span> <span class="cn">NA_character_</span>, i <span class="op">=</span> <span class="cn">NULL</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">scrape_catastro</span><span class="op">(</span><span class="va">url</span>, ID <span class="op">=</span> <span class="cn">NA_character_</span>, i <span class="op">=</span> <span class="cn">NULL</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="argumentos">Argumentos<a class="anchor" aria-label="anchor" href="#argumentos"></a></h2>
     <dl><dt>url</dt>
 <dd><p>A character vector of variable length with the url.</p></dd>
+
+
 <dt>ID</dt>
 <dd><p>An optional character vector with the unique identification of each real state. For example, its name or address.</p></dd>
+
+
 <dt>i</dt>
 <dd><p>An internal argument when url vector is of length greater than 1. Do not use this parameter.</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>If TRUE, the iteration number is printed on the console. Default set to FALSE.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="valor">Valor<a class="anchor" aria-label="anchor" href="#valor"></a></h2>
-    <p>A list with two elements: the first one with the information of the main real state (<code>parcela</code>).
+    
+
+<p>A list with two elements: the first one with the information of the main real state (<code>parcela</code>).
 In the second element is the information regarding real states associated with the main one (<code>inmuebles</code>).</p>
     </div>
     <div class="section level2">
@@ -80,28 +89,28 @@ In the second element is the information regarding real states associated with t
 
     <div class="section level2">
     <h2 id="ref-examples">Ejemplos<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co"># Real examples</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">url_1</span> <span class="op">&lt;-</span> <span class="st">"https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=9797905&amp;rc2=VK3799F"</span></span>
-<span class="r-in"><span class="va">url_2</span> <span class="op">&lt;-</span> <span class="st">"https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=2831834&amp;rc2=VK4723B"</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">address_1</span> <span class="op">&lt;-</span> <span class="st">'CL ARMENTEROS 44'</span></span>
-<span class="r-in"><span class="va">address_2</span> <span class="op">&lt;-</span> <span class="st">'CL ABTAO 30'</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># web scraping the information of the first one:</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">scrape_catastro</span><span class="op">(</span> <span class="va">url_1</span>, <span class="va">address_1</span> <span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Real examples</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">url_1</span> <span class="op">&lt;-</span> <span class="st">"https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=9797905&amp;rc2=VK3799F"</span></span></span>
+<span class="r-in"><span><span class="va">url_2</span> <span class="op">&lt;-</span> <span class="st">"https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=2831834&amp;rc2=VK4723B"</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">address_1</span> <span class="op">&lt;-</span> <span class="st">'CL ARMENTEROS 44'</span></span></span>
+<span class="r-in"><span><span class="va">address_2</span> <span class="op">&lt;-</span> <span class="st">'CL ABTAO 30'</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># web scraping the information of the first one:</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">scrape_catastro</span><span class="op">(</span> <span class="va">url_1</span>, <span class="va">address_1</span> <span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in scrape_catastro(url_1, address_1):</span> rvest and dplyr packages must be loaded</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># web scraping the information of the two webpages:</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">urls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">url_1</span>,<span class="va">url_2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">address</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">address_1</span>,<span class="va">address_2</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">scrape_catastro</span><span class="op">(</span> <span class="va">urls</span>, <span class="va">address</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span> <span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># web scraping the information of the two webpages:</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">urls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">url_1</span>,<span class="va">url_2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">address</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">address_1</span>,<span class="va">address_2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">scrape_catastro</span><span class="op">(</span> <span class="va">urls</span>, <span class="va">address</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span> <span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in scrape_catastro(urls, address, verbose = TRUE):</span> rvest and dplyr packages must be loaded</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>En esta página</h2>
@@ -113,7 +122,7 @@ In the second element is the information regarding real states associated with t
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Sitio creado con <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Sitio creado con <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>
