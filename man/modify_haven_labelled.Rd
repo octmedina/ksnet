@@ -4,11 +4,7 @@
 \alias{modify_haven_labelled}
 \title{Adjust STATA objects to R format}
 \usage{
-modify_haven_labelled(
-  obj,
-  return_labels = TRUE,
-  new_class = c("numeric", "character", "logical")
-)
+modify_haven_labelled(obj, return_labels = TRUE)
 }
 \arguments{
 \item{obj}{A dataframe or a vector}

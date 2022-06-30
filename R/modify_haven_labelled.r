@@ -31,9 +31,7 @@
 #' ecv2020 <- ecv2020 %>%
 #'    mutate( situacion_hogar = modify_haven_labelled( situacion_hogar )  )
 
-modify_haven_labelled <- function(obj, return_labels = TRUE,new_class = c('numeric','character','logical')){
-
-    new_class <- match.arg(new_class, c('numeric','character','logical') )
+modify_haven_labelled <- function(obj, return_labels = TRUE){
 
     if( !is.data.frame(obj) ){
 
@@ -44,7 +42,7 @@ modify_haven_labelled <- function(obj, return_labels = TRUE,new_class = c('numer
         attr(obj,'format.stata') <- NULL
         attr(obj,'label') <- NULL
         attr(obj,'labels') <- NULL
-        class(obj) <- new_class
+        class(obj) <- 'numeric'
 
         if( return_labels ){
             obj <- x_labels[ as.character(obj) ]
@@ -59,16 +57,19 @@ modify_haven_labelled <- function(obj, return_labels = TRUE,new_class = c('numer
             var_temp <- obj[[i]]
 
             if( class(var_temp)[1] != "haven_labelled" ){
-                next
+                obj[[i]] <- var_temp
             } else{
-                obj[[i]] <- modify_haven_labelled(obj = var_temp, return_labels = return_labels, new_class = new_class )
+                obj[[i]] <- modify_haven_labelled(obj = var_temp, return_labels = return_labels )
 
             }
         }
-        return(obj)
+
+        return( obj )
+
     }
 
 }
+
 
 # FUNCION ANTERIOR SIGUIENDO LA LOGICA DE METODOS:
 #' modify_haven_labelled <- function(obj,to = c('numeric','character','logical'),
