@@ -80,7 +80,7 @@ missing data. Read <code><a href="generate_synthetic_object.html">help(generate_
 <span class="r-in"><span><span class="fu">impute_by_sampling_distribution</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 15.0 21.4 13.0 20.5 20.9 20.1 31.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 15.0 21.4 19.6 25.0 16.5 21.5 30.6</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">data_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span>,<span class="cn">NA</span><span class="op">)</span>,</span></span>
@@ -120,11 +120,11 @@ missing data. Read <code><a href="generate_synthetic_object.html">help(generate_
 <span class="r-out co"><span class="r-pr">#&gt;</span> 30 19.7 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 31 15.0 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32 21.4 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 29.6 4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 15.2 6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 28.8 5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 17.7 7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 18.4 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 27.3 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 15.4 7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 17.8 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 23.0 7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 20.5 7</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">data_temp</span>, x_impute <span class="op">=</span> <span class="fu">impute_by_sampling_distribution</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       x  y x_impute</span>
@@ -160,11 +160,11 @@ missing data. Read <code><a href="generate_synthetic_object.html">help(generate_
 <span class="r-out co"><span class="r-pr">#&gt;</span> 30 19.7  6     19.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 31 15.0  8     15.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32 21.4  4     21.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33   NA NA     16.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34   NA NA     24.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35   NA NA     20.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36   NA NA     19.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37   NA NA     12.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33   NA NA     10.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34   NA NA     19.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35   NA NA     16.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36   NA NA     11.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37   NA NA     21.2</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>En esta página</h2>
