@@ -62,7 +62,7 @@ modify_haven_labelled <- function(obj, return_labels = TRUE,new_class = c('numer
                 next
             } else{
 
-                obj[[i]] <- modify_haven_labelled(var_temp, new_class, return_labels)
+                obj[[i]] <- modify_haven_labelled(obj = var_temp, return_labels = return_labels, new_class = new_class )
 
             }
         }
