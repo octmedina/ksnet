@@ -54,8 +54,6 @@
 #'  )
 #'
 #' get_association( df, pairs_to_check = list_pairs, return_df = T )
-
-
 get_association <- function(x,y,name_x=NULL,name_y=NULL,
                             df,pairs_to_check,return_df ){
     UseMethod('get_association')
@@ -64,7 +62,6 @@ get_association <- function(x,y,name_x=NULL,name_y=NULL,
 
 #' @rdname get_association
 #' @export
-
 get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 
     if(is.null(name_x)){
