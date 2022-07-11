@@ -38,7 +38,7 @@ association_2dummy <- function(x,y,...,name_x=NULL,name_y=NULL){
     out <-  broom::tidy( suppressWarnings( chisq.test( x,y,... ) ) ) %>%
         mutate( is_sign = p.value <= 0.05, .after = p.value) %>%
         mutate( 'var1' = name_x,'var2' = name_y, .before = 1,
-                'pair' ='2fac','method'='chisq_test') %>%
+                'pair' ='2dummies','method'='chisq_test') %>%
         relocate( pair,method, .before = 1 ) %>%
         rename( 'dfreedom'=parameter ) %>%
         mutate( 'cramer_v'=cramer_v )
