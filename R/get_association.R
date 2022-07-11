@@ -65,7 +65,8 @@ get_association <- function(x,y,name_x=NULL,name_y=NULL,
 #' @rdname get_association
 #' @export
 
-get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
+get_association.default <- function(x,y,name_x=NULL,name_y=NULL,
+                                    df,pairs_to_check,return_df ){
 
     if(is.null(name_x)){
         name_x <- deparse( substitute(x) )
@@ -90,8 +91,9 @@ get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 
 #' @rdname get_association
 #' @export
-#'
-get_association.data.frame <- function(df,pairs_to_check=NULL, return_df=FALSE){
+
+get_association.data.frame <- function(df,pairs_to_check=NULL, return_df=FALSE,
+                                       x,y,name_x,name_y){
 
     if( is.null(pairs_to_check) ){
         vars_pair <- as.data.frame(combn(names(df),2))

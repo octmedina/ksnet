@@ -16,9 +16,25 @@ get_association(
   return_df
 )
 
-\method{get_association}{default}(x, y, name_x = NULL, name_y = NULL)
+\method{get_association}{default}(
+  x,
+  y,
+  name_x = NULL,
+  name_y = NULL,
+  df,
+  pairs_to_check,
+  return_df
+)
 
-\method{get_association}{data.frame}(df, pairs_to_check = NULL, return_df = FALSE)
+\method{get_association}{data.frame}(
+  df,
+  pairs_to_check = NULL,
+  return_df = FALSE,
+  x,
+  y,
+  name_x,
+  name_y
+)
 }
 \arguments{
 \item{x}{A vector.}
