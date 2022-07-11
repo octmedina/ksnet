@@ -17,6 +17,7 @@
 #' @param return_df If TRUE, when is passed a dataframe, is returned a dataframe as well instead of a named list.
 #'
 #' @return A dataframe or a named list with the results.
+#'
 #' @export
 #'
 #' @examples
@@ -54,6 +55,7 @@
 #'  )
 #'
 #' get_association( df, pairs_to_check = list_pairs, return_df = T )
+
 get_association <- function(x,y,name_x=NULL,name_y=NULL,
                             df,pairs_to_check,return_df ){
     UseMethod('get_association')
@@ -61,7 +63,8 @@ get_association <- function(x,y,name_x=NULL,name_y=NULL,
 
 
 #' @rdname get_association
-#' @export
+#' @export get_association.default
+
 get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 
     if(is.null(name_x)){
@@ -86,7 +89,8 @@ get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 }
 
 #' @rdname get_association
-#' @export
+#' @export get_association.data.frame
+
 get_association.data.frame <- function(df,pairs_to_check=NULL, return_df=FALSE){
 
     if( is.null(pairs_to_check) ){
