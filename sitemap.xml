@@ -31,6 +31,24 @@
     <loc>https://octmedina.github.io/ksnet/index.html</loc>
   </url>
   <url>
+    <loc>https://octmedina.github.io/ksnet/reference/association_2dummy.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/association_2fac.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/association_2num_cor.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/association_2num_difmean.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/association_num_dummy.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/association_num_fac.html</loc>
+  </url>
+  <url>
     <loc>https://octmedina.github.io/ksnet/reference/caption_ksnet.html</loc>
   </url>
   <url>
@@ -49,16 +67,43 @@
     <loc>https://octmedina.github.io/ksnet/reference/decimalplaces.html</loc>
   </url>
   <url>
+    <loc>https://octmedina.github.io/ksnet/reference/detect_pair_type.html</loc>
+  </url>
+  <url>
     <loc>https://octmedina.github.io/ksnet/reference/extract_from_catastro.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/generate_synthetic_object.html</loc>
   </url>
   <url>
+    <loc>https://octmedina.github.io/ksnet/reference/get_association.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/get_summarise.html</loc>
+  </url>
+  <url>
     <loc>https://octmedina.github.io/ksnet/reference/impute_by_sampling_distribution.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/is_2dummies.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/is_2fac.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/is_2num.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/is_dummy.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/is_num_dummy.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/is_num_fac.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/ksnet_bar.html</loc>
@@ -104,6 +149,12 @@
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/scrape_catastro.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/summarise_fac_fac.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/summarise_fac_num.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/theme_ksnet.html</loc>
