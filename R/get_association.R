@@ -63,7 +63,7 @@ get_association <- function(x,y,name_x=NULL,name_y=NULL,
 
 
 #' @rdname get_association
-#' @export
+#' @export get_association.default
 
 get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 
@@ -89,7 +89,7 @@ get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 }
 
 #' @rdname get_association
-#' @export
+#' @export get_association.data.frame
 get_association.data.frame <- function(df,pairs_to_check=NULL, return_df=FALSE){
 
     if( is.null(pairs_to_check) ){

@@ -40,7 +40,7 @@ get_summarise <- function(x,y, peso, round_stats, round_p, name_x,name_y,
 
 
 #' @rdname get_summarise
-#' @export
+#' @export get_summarise.default
 get_summarise.default <- function(x,y,peso=NULL, round_stats=3, round_p=3, name_x=NULL,name_y=NULL){
 
     if(is.null(name_x)){
@@ -69,7 +69,7 @@ get_summarise.default <- function(x,y,peso=NULL, round_stats=3, round_p=3, name_
 
 
 #' @rdname get_summarise
-#' @export
+#' @export get_summarise.data.frame
 get_summarise.data.frame <- function(df,pairs_to_check=NULL, peso = NULL,  round_stats=3, round_p=3){
 
     if( is.null(pairs_to_check) ){
