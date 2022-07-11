@@ -3,14 +3,13 @@
 #' Generate samples of a dataset.
 #'
 #' @param data a dataframe
-#' @param n_samples
+#' @param n_samples Number of samples.
 #' @param p Numeric between 0 and 1. Percentage of observations to keep in each sample.
 #' @param var_to_stratify If desired, name of variable to straty the sampling. Default NULL.
 #' @param pond A numeric vector of sample weights. Default NULL.
 #' @param seed Numeric.
 #'
-#' @return
-#' A list with dataframes.
+#' @return A list with dataframes.
 #'
 #' @export
 #'

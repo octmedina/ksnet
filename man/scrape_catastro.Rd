@@ -21,10 +21,7 @@ In the second element is the information regarding real states associated with t
 }
 \description{
 This function is designed to extract the information related to
-real estates from Catastro, for example \href{https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=9797905&rc2=VK3799F}{this}.
-}
-\details{
-The data related to the
+real estates from Catastro.
 }
 \examples{
 

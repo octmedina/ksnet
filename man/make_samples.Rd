@@ -16,6 +16,8 @@ make_samples(
 \arguments{
 \item{data}{a dataframe}
 
+\item{n_samples}{Number of samples.}
+
 \item{p}{Numeric between 0 and 1. Percentage of observations to keep in each sample.}
 
 \item{var_to_stratify}{If desired, name of variable to straty the sampling. Default NULL.}

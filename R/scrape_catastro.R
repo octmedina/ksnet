@@ -2,17 +2,15 @@
 #' Web Scraping of Catastro
 #'
 #' This function is designed to extract the information related to
-#' real estates from Catastro, for example [this](https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=9797905&rc2=VK3799F).
+#' real estates from Catastro.
 #'
-#' The data related to the
 #'
 #' @param url A character vector of variable length with the url.
 #' @param ID An optional character vector with the unique identification of each real state. For example, its name or address.
 #' @param i An internal argument when url vector is of length greater than 1. Do not use this parameter.
 #' @param verbose If TRUE, the iteration number is printed on the console. Default set to FALSE.
 #'
-#' @return
-#'  A list with two elements: the first one with the information of the main real state (`parcela`).
+#' @return A list with two elements: the first one with the information of the main real state (`parcela`).
 #'  In the second element is the information regarding real states associated with the main one (`inmuebles`).
 #' @export
 #'
@@ -69,7 +67,7 @@ scrape_catastro <- function(url, ID=NA_character_, i = NULL, verbose = FALSE){
         df_parcela <- tibble( 'referencia_catastral' = info_parcela_rf[3],
                               'tipo_parcela' = parcela[1],
                               'localizacion' = parcela[2],
-                              'superfice' = parcela[3] ) %>%
+                              'superficie_parcela' = parcela[3] ) %>%
             mutate( 'ID' = ID, categoria = 'parcela', .before = 1 )
 
         ## extraer la información de los inmuebles relacionados con la parcela
@@ -102,7 +100,6 @@ scrape_catastro <- function(url, ID=NA_character_, i = NULL, verbose = FALSE){
 #'
 #' Internal function
 #'
-#' @param x
 clean_info_inmuebles <- function(x){
 
     referencia_catastral <- stringr::str_sub(x,1,20)
@@ -119,7 +116,7 @@ clean_info_inmuebles <- function(x){
         'referencia_catastral' = referencia_catastral,
         'dir_inmueble' = dir_inmueble,
         'uso' = info_inmueble[1],
-        'superficie' = info_inmueble[2],
+        'superficie_inmueble' = info_inmueble[2],
         'coef_participacion' = info_inmueble[3],
         'any_construccion' = info_inmueble[4],
     )

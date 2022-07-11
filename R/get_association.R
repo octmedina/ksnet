@@ -90,7 +90,7 @@ get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 
 #' @rdname get_association
 #' @export
-
+#'
 get_association.data.frame <- function(df,pairs_to_check=NULL, return_df=FALSE){
 
     if( is.null(pairs_to_check) ){
@@ -151,7 +151,7 @@ get_association.data.frame <- function(df,pairs_to_check=NULL, return_df=FALSE){
 
         function(var1,var2){
 
-            ksnet::get_association.default(x = df[[var1]], y = df[[var2]], name_x = var1,name_y = var2)
+            get_association(x = df[[var1]], y = df[[var2]], name_x = var1,name_y = var2)
 
         }
     )
