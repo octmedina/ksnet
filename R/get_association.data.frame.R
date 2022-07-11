@@ -1,3 +1,7 @@
+#' @param df
+#' @param pairs_to_check
+#' @param return_df
+#'
 #' @rdname get_association
 #' @export
 

@@ -28,13 +28,13 @@ get_association(
 
 \item{name_x}{Optional. Name of the x variable (character).}
 
-\item{name_y}{Optional. Name of the y variable (character).}
+\item{name_y}{}
 
 \item{df}{A data.frame with the required data.}
 
 \item{pairs_to_check}{NULL (default), a character vector, a dataframe of two columns or a named list.}
 
-\item{return_df}{If TRUE, when is passed a dataframe, is returned a dataframe as well instead of a named list.}
+\item{return_df}{}
 }
 \value{
 A dataframe or a named list with the results.

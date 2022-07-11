@@ -1,3 +1,8 @@
+#' @param x
+#' @param y
+#' @param name_x
+#' @param name_y
+#'
 #' @rdname get_association
 #' @export
 
