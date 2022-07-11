@@ -1,8 +1,8 @@
 
 #' Tidy test of proportion
 #'
-#' Carry out a proportion test for two dummy variables and export it in a tidy
-#' format with \code{broom}. It is also calcul the Cramer V.
+#' Carry out a chi-squared contingency table test for two vectors and export it in a tidy
+#' format with \code{broom}. It is also calculated the Cramer V.
 #'
 #' @param x A vector.
 #' @param y A vector.
@@ -35,14 +35,14 @@ association_2dummy <- function(x,y,...,name_x=NULL,name_y=NULL){
     table_x_y <- table(x,y)
     cramer_v <- questionr::cramer.v(table_x_y)
 
-    prop_test <- broom::tidy( prop.test(table_x_y,...) ) %>%
-        mutate( is_sign = p.value <= 0.05, .after = p.value,
-                'pair' ='2dummies', 'method'='prop_test',
-        ) %>%
-        relocate( pair, method, .before = 1 ) %>%
-        mutate( 'var1'=name_x, 'var2'=  name_y, .before = estimate1) %>%
-        rename('dfreedom' = parameter) %>%
+    out <-  broom::tidy( suppressWarnings( chisq.test( x,y,... ) ) ) %>%
+        mutate( is_sign = p.value <= 0.05, .after = p.value) %>%
+        mutate( 'var1' = name_x,'var2' = name_y, .before = 1,
+                'pair' ='2fac','method'='chisq_test') %>%
+        relocate( pair,method, .before = 1 ) %>%
+        rename( 'dfreedom'=parameter ) %>%
         mutate( 'cramer_v'=cramer_v )
 
-    return(prop_test)
+
+    return(out)
 }

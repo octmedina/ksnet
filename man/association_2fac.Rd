@@ -22,7 +22,7 @@ A data.frame with the results.
 }
 \description{
 Carry out a chi-squared contingency table test for two vectors and export it in a tidy
-format with \code{broom}.
+format with \code{broom}. It is also calculated the Cramer V.
 }
 \examples{
 association_2fac( as.factor(mtcars$cyl), as.factor(mtcars$am) )

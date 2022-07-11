@@ -1,7 +1,7 @@
 #' Tidy test of chi-squared contingency table test
 #'
 #' Carry out a chi-squared contingency table test for two vectors and export it in a tidy
-#' format with \code{broom}.
+#' format with \code{broom}. It is also calculated the Cramer V.
 #'
 #' @param x A vector.
 #' @param y A vector.

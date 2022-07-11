@@ -21,8 +21,8 @@ association_2dummy(x, y, ..., name_x = NULL, name_y = NULL)
 A data.frame with the results.
 }
 \description{
-Carry out a proportion test for two dummy variables and export it in a tidy
-format with \code{broom}. It is also calcul the Cramer V.
+Carry out a chi-squared contingency table test for two vectors and export it in a tidy
+format with \code{broom}. It is also calculated the Cramer V.
 }
 \examples{
 association_2dummy(mtcars$am,mtcars$vs)
