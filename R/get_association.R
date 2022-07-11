@@ -16,8 +16,8 @@
 #' @param pairs_to_check NULL (default), a character vector, a dataframe of two columns or a named list.
 #' @param return_df If TRUE, when is passed a dataframe, is returned a dataframe as well instead of a named list.
 #'
-#' @export
 #' @return A dataframe or a named list with the results.
+#' @export
 #'
 #' @examples
 #'
@@ -63,7 +63,7 @@ get_association <- function(x,y,name_x=NULL,name_y=NULL,
 
 
 #' @rdname get_association
-#' @export get_association.default
+#' @export
 
 get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 
@@ -89,7 +89,7 @@ get_association.default <- function(x,y,name_x=NULL,name_y=NULL){
 }
 
 #' @rdname get_association
-#' @export get_association.data.frame
+#' @export
 get_association.data.frame <- function(df,pairs_to_check=NULL, return_df=FALSE){
 
     if( is.null(pairs_to_check) ){
