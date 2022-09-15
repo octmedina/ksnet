@@ -1,12 +1,12 @@
 pandoc: 2.7.3
-pkgdown: 2.0.5
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   color: color.html
   documentos: documentos.html
   graficas: graficas.html
   tablas: tablas.html
-last_built: 2022-07-11T11:59Z
+last_built: 2022-09-15T10:38Z
 urls:
   reference: https://octmedina.github.io/ksnet/reference
   article: https://octmedina.github.io/ksnet/articles

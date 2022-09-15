@@ -55,10 +55,16 @@
     <loc>https://octmedina.github.io/ksnet/reference/catalan_month_label.html</loc>
   </url>
   <url>
+    <loc>https://octmedina.github.io/ksnet/reference/check_stata_format.html</loc>
+  </url>
+  <url>
     <loc>https://octmedina.github.io/ksnet/reference/clean_info_inmuebles.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/color_ksnet.html</loc>
+  </url>
+  <url>
+    <loc>https://octmedina.github.io/ksnet/reference/color_pallette_alpha.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/count_and_share.html</loc>
@@ -70,6 +76,9 @@
     <loc>https://octmedina.github.io/ksnet/reference/detect_pair_type.html</loc>
   </url>
   <url>
+    <loc>https://octmedina.github.io/ksnet/reference/extract_association.html</loc>
+  </url>
+  <url>
     <loc>https://octmedina.github.io/ksnet/reference/extract_from_catastro.html</loc>
   </url>
   <url>
@@ -77,9 +86,6 @@
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/get_association.html</loc>
-  </url>
-  <url>
-    <loc>https://octmedina.github.io/ksnet/reference/get_summarise.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/impute_by_sampling_distribution.html</loc>
@@ -121,13 +127,7 @@
     <loc>https://octmedina.github.io/ksnet/reference/ksnet_table.html</loc>
   </url>
   <url>
-    <loc>https://octmedina.github.io/ksnet/reference/lm_search_interactions.html</loc>
-  </url>
-  <url>
     <loc>https://octmedina.github.io/ksnet/reference/make_samples.html</loc>
-  </url>
-  <url>
-    <loc>https://octmedina.github.io/ksnet/reference/modify_haven_labelled.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/pipe.html</loc>
@@ -149,12 +149,6 @@
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/scrape_catastro.html</loc>
-  </url>
-  <url>
-    <loc>https://octmedina.github.io/ksnet/reference/summarise_fac_fac.html</loc>
-  </url>
-  <url>
-    <loc>https://octmedina.github.io/ksnet/reference/summarise_fac_num.html</loc>
   </url>
   <url>
     <loc>https://octmedina.github.io/ksnet/reference/theme_ksnet.html</loc>
