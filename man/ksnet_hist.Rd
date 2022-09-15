@@ -12,7 +12,7 @@ ksnet_hist(data, xvar, fill = color_ksnet()[1])
 \item{xvar}{variable}
 }
 \value{
-
+ggplot2
 }
 \description{
 Explore the distribution of your data with a histogram. This function generates

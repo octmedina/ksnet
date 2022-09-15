@@ -7,7 +7,7 @@
 \method{print}{palette}(x, ...)
 }
 \value{
-
+ggplot2
 }
 \description{
 Imprime la paleta

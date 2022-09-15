@@ -5,9 +5,8 @@
 #' Apply the ksnet theme to your graphs
 #'
 #' @return
+#' theme gg object
 #' @export
-#'
-#' @examples
 #'
 
 

@@ -12,6 +12,7 @@
 #' @param yvar variable
 #'
 #' @return
+#' ggplot
 #' @export
 #'
 #' @examples

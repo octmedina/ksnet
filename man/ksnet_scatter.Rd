@@ -14,7 +14,7 @@ ksnet_scatter(data, xvar, yvar, color = color_ksnet()[1])
 \item{yvar}{variable}
 }
 \value{
-
+ggplot
 }
 \description{
 Explore the distribution of your data with a scatterplot This function generates

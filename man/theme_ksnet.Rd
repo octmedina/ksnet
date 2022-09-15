@@ -7,11 +7,8 @@
 theme_ksnet()
 }
 \value{
-
+theme gg object
 }
 \description{
 Apply the ksnet theme to your graphs
-}
-\examples{
-
 }

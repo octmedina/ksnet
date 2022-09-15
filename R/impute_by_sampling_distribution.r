@@ -31,21 +31,29 @@ impute_by_sampling_distribution <- function(obj, set_seed=NULL){
 
     if(anyNA(obj)==FALSE) stop('Object has no NA value')
 
-    if( is.vector(obj) ){
-        new_obj <- obj
+    if( !is.data.frame(obj)  ){
 
+        obj_label <- attr(obj,'label')
+        attr(obj,'label') <- NULL
+
+        new_obj <- obj
         ind_isNA <- is.na(obj)
-        n_isNA <- length(obj[ind_isNA])
+        n_isNA <-  sum(ind_isNA)
         x_complete <- obj[!ind_isNA]
 
-        values_impute <- generate_synthetic_object(x_complete, seed=set_seed, n_news = n_isNA)
+        values_impute <- ksnet::generate_synthetic_object(x_complete, seed=set_seed, n_news = n_isNA)
 
-        new_obj[ind_isNA] <- values_impute
+        new_obj[ which(ind_isNA) ] <- values_impute
+
+
 
     } else if( is.data.frame(obj) ){
 
         new_obj <- purrr::map_df(obj, impute_by_sampling_distribution, set_seed = set_seed)
 
     }
-    return(new_obj)
+    attr(new_obj,'label') <- obj_label
+    new_obj
 }
+
+

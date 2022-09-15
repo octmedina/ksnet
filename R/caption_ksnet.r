@@ -7,6 +7,7 @@
 #' @param ... a character vector with other caption information such as Source or Notes. See Details.
 #'
 #' @return
+#'  A character vector of length two.
 #' @export
 #'
 #' @details

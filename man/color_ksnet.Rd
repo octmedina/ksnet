@@ -13,11 +13,8 @@ color_ksnet(
 )
 }
 \value{
-
+List
 }
 \description{
 Aplicar un color KSNET a las figuras
-}
-\examples{
-
 }

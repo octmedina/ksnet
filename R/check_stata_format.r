@@ -23,31 +23,32 @@
 #' # Import data
 #' ecv2020 <- haven::read.dta('ecv2020.dta')
 #' # The function detects which columns must be changed
-#' ecv2020 <- modify_haven_labelled(ecv2020)
+#' ecv2020 <- check_stata_format(ecv2020)
 #'
 #' # It can be applied to one variable
-#' ecv2020$situacion_hogar <- modify_haven_labelled( ecv2020$situacion_hogar )
+#' ecv2020$situacion_hogar <- check_stata_format( ecv2020$situacion_hogar )
 #'
 #' ecv2020 <- ecv2020 %>%
-#'    mutate( situacion_hogar = modify_haven_labelled( situacion_hogar )  )
+#'    mutate( situacion_hogar = check_stata_format( situacion_hogar )  )
 
-modify_haven_labelled <- function(obj, return_labels = TRUE){
+check_stata_format <- function(obj, return_labels = TRUE){
 
     if( !is.data.frame(obj) ){
 
-        attr_labels <- attr(obj,'labels')
-        x_labels <- names(attr_labels)
-        names(x_labels) <- attr_labels
+        attr_labels <- attr(obj,'labels') # extraemos los valores del vector haven_labelled
+        x_labels <- names(attr_labels) # y sus etiquetas
+        names(x_labels) <- attr_labels # creamos el named vector
 
-        attr(obj,'format.stata') <- NULL
-        attr(obj,'label') <- NULL
-        attr(obj,'labels') <- NULL
-        class(obj) <- 'numeric'
-
-        if( return_labels ){
+        # si tiene etiquetas (está pensado para el loop):
+        if( !is.null(attr(obj,'labels')) & return_labels  ){
             obj <- x_labels[ as.character(obj) ]
+            obj <- factor(obj,x_labels)
             names(obj) <- NULL
         }
+        attr(obj,'format.stata') <- NULL # eliminamos este atributo
+        # attr(obj,'label') <- NULL # dejamos finalmente el de la pregunta
+        attr(obj,'labels') <- NULL # eliminamos las etiquetas de los factores
+
         return(obj)
 
     } else if( is.data.frame(obj) ){
@@ -55,11 +56,13 @@ modify_haven_labelled <- function(obj, return_labels = TRUE){
         for (i in seq_len(ncol(obj)) ) {
 
             var_temp <- obj[[i]]
-
+            # si no es un haven_labelled al menos le quitamos la etiqueta de format.stata
             if( class(var_temp)[1] != "haven_labelled" ){
+                attr(var_temp,'format.stata') <- NULL
                 obj[[i]] <- var_temp
+
             } else{
-                obj[[i]] <- modify_haven_labelled(obj = var_temp, return_labels = return_labels )
+                obj[[i]] <- check_stata_format(obj = var_temp, return_labels = return_labels )
 
             }
         }

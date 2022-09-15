@@ -11,6 +11,7 @@
 #' @param xvar variable
 #'
 #' @return
+#' ggplot2
 #' @export
 #'
 #' @examples

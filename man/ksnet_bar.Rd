@@ -14,7 +14,7 @@ ksnet_bar(data, xvar, yvar, fill = color_ksnet()[1])
 \item{yvar}{variable}
 }
 \value{
-
+ggplot2
 }
 \description{
 This function generates a ggplot2 object, so it's easily

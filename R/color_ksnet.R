@@ -23,10 +23,10 @@ paletas_ksnet <- list(
 #' Aplicar un color KSNET a las figuras
 #'
 #' @return
+#' List
 #' @export
 #'
-#' @examples
-#'
+
 color_ksnet <- function(palette = "classic", reverse = FALSE, n, type = c("discrete", "continuous"), ...) {
 
     type <- match.arg(type)
@@ -58,6 +58,7 @@ color_ksnet <- function(palette = "classic", reverse = FALSE, n, type = c("discr
 #' Imprime la paleta
 #'
 #' @return
+#' ggplot2
 #' @export
 #'
 #'
