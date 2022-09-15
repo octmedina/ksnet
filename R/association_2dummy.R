@@ -41,8 +41,10 @@ association_2dummy <- function(x,y,...,name_x=NULL,name_y=NULL){
                 'pair' ='2dummies','method'='chisq_test') %>%
         relocate( pair,method, .before = 1 ) %>%
         rename( 'dfreedom'=parameter ) %>%
+       relocate( dfreedom, .after = statistic ) %>%
         mutate( 'cramer_v'=cramer_v )
 
 
     return(out)
 }
+

@@ -33,12 +33,18 @@ association_2fac <- function(x,y,...,name_x=NULL,name_y=NULL){
 
     out <-  broom::tidy( suppressWarnings( chisq.test( x,y,... ) ) ) %>%
         mutate( is_sign = p.value <= 0.05, .after = p.value) %>%
-        mutate( 'var1' = name_x,'var2' = name_y, .before = 1,
+        mutate( 'var1' = name_x,'var2' = name_y, 
+                across(c(var1,var2),~gsub(')','',.x)),
+                .before = 1,
                 'pair' ='2fac','method'='chisq_test') %>%
         relocate( pair,method, .before = 1 ) %>%
         rename( 'dfreedom'=parameter ) %>%
+        relocate( dfreedom,.after = statistic ) %>%
         mutate( 'cramer_v'=cramer_v )
 
     return(out)
 
 }
+
+
+

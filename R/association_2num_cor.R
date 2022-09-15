@@ -37,8 +37,11 @@ association_2num_cor <- function(x,y,...,name_x=NULL,name_y=NULL){
         ) %>%
         relocate( pair, method, .before = 1 ) %>%
         mutate( 'var1'=name_x, 'var2'=  name_y, .before = estimate) %>%
-        rename('dfreedom' = parameter)
+        rename('dfreedom' = parameter, 'cor' = estimate) %>%
+        relocate( conf.low, conf.high, .after = cor ) %>% 
+         relocate( dfreedom, .after = statistic )
     # names(prop_test)[c(2:3,7)] <- c(name_x,name_y,'dfreedom')
 
     return(cor_test)
 }
+

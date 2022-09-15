@@ -30,7 +30,7 @@ association_num_dummy <- function(x,y,...,name_x=NULL,name_y=NULL){
         if( grepl('$',name_x) ) name_y <- strsplit(name_y,'\\$')[[1]][2]
     }
 
-    which_is_dummy <- which(c(is_dummy(x), is_dummy(y)))
+    which_is_dummy <- which(c(ksnet::is_dummy(x), ksnet::is_dummy(y)))
 
     if( which_is_dummy == 2)  out <-  broom::tidy( t.test( x ~ y,... ) )
     if( which_is_dummy == 1)  out <-  broom::tidy( t.test( y ~ x,... ) )
@@ -38,12 +38,13 @@ association_num_dummy <- function(x,y,...,name_x=NULL,name_y=NULL){
     dummy_var <- c(name_x,name_y)[which_is_dummy]
 
     out <-  out %>%
-        mutate( is_sign = p.value <= 0.05, .after = p.value) %>%
-        mutate( 'var1' = name_x,'var2' = name_y, .before = 1,
-                'pair' ='num_dummy', 'method'='t_test') %>%
-        relocate( pair,method, .before = 1 ) %>%
-        rename( 'dfreedom'=parameter ) %>%
-        mutate( 'is_dummy' = dummy_var, .after = var2 )
+        mutate( is_sign = p.value <= 0.05, 
+                'var1' = name_x,'var2' = name_y, 
+                'pair' ='num_dummy', 'method'='t_test',
+                'is_dummy' = dummy_var ) %>% 
+      select( pair, method, var1, var2, is_dummy, 'mean1' = estimate1,
+              'mean2' = estimate2, 'dif' = estimate,conf.low ,conf.high,
+              statistic,'dfreedom'=parameter, p.value,is_sign, alternative)
 
     return(out)
 

@@ -42,11 +42,17 @@ association_num_fac <- function(x,y,...,name_x=NULL,name_y=NULL){
                 'pair' ='num_fac',
                 'method'='ANOVA') %>%
         relocate( pair,method, .before = 1 ) %>%
-        rename( 'dfreedom'=df ) %>%
+        rename( dfreedom = df ) %>%
+        relocate( 'dfreedom',.after = statistic ) %>%
         mutate( is_sign = p.value <= 0.05, .after = p.value) %>%
-        mutate( 'is_factor' = fac_var, .after = var2 ) %>%
+        mutate( 'is_factor' = fac_var, across(c(var1,var2,is_factor),~gsub(')','',.x)),
+                .after = var2 ) %>%
         select( -c(term,sumsq,meansq) )
 
     return(out)
 
 }
+
+
+
+
