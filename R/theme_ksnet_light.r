@@ -7,16 +7,18 @@
 #' specific \code{theme}.
 #'
 #' @param legend_position character vector. Default is right.
+#' @param is_x_date when x axis represents a date vector set to TRUE to adjust vjust.
+#' @param caption_ksnet Logical. Set to TRUE when using \code{ksnet::caption_ksnet}. See Examples.
+#' @param x_vjust numeric. Default 4.
+#' @param remove_grid_major_y logical. Default TRUE.
+#' @param remove_grid_major_x logical. Default TRUE.
 #' @param title_size numeric. Default 14.5.
 #' @param subtitle_size numeric. Default 12.5.
 #' @param x_size numeric. Axis title size. Default 12.5.
 #' @param y_size numeric. Axis title size. Default 12.5.
 #' @param axis_x_size numeric. Axis text size. Default 12.
 #' @param axis_y_size numeric. Axis text size. Default 12.
-#' @param x_vjust numeric. Default 4.
-#' @param remove_grid_major_y logical. Default TRUE.
-#' @param remove_grid_major_x logical. Default TRUE.
-#' @param is_x_date when x axis represents a date vector set to TRUE to adjust vjust.
+
 #' @param font_family default is Public Sants. But is is necessary to have it installed. See Details.
 #'
 #' @details
@@ -35,24 +37,30 @@
 #'
 #' ggplot(mtcars,aes(mpg))+
 #'   geom_density()+
+#'   labs( caption = 'Fuente: Elaboración propia' )+
 #'   theme_ksnet_light()
 #'
+#' ## gráfico divulgativo con la etiqueta KSNET
 #' ggplot(mtcars,aes(mpg))+
 #'   geom_density()+
-#'   theme_ksnet_light(remove_grid_major_x = FALSE)
+#'   labs( caption = ksnet::caption_ksnet( 'Fuente: Elaboración propia' ))+
+#'   theme_ksnet_light( caption_ksnet = TRUE,
+#'                      remove_grid_major_x = FALSE)
 #'
 #'
 theme_ksnet_light <- function(legend_position='right',
+                              is_x_date = FALSE,
+                              caption_ksnet = FALSE,
+                              x_vjust=4,
+                              remove_grid_major_y = TRUE,
+                              remove_grid_major_x = TRUE,
                               title_size=14.5,
                               subtitle_size=12.5,
                               x_size=12.5,
                               y_size=12.5,
                               axis_x_size=12,
                               axis_y_size=12,
-                              x_vjust=4,
-                              remove_grid_major_y = TRUE,
-                              remove_grid_major_x = TRUE,
-                              is_x_date = FALSE,
+
                               plot_font= 'Public Sans'
 ){
     tema <- theme_minimal()+
@@ -66,8 +74,7 @@ theme_ksnet_light <- function(legend_position='right',
             axis.text.x = element_text(size=axis_x_size,vjust=x_vjust),
             axis.text.y = element_text(size=axis_y_size),
 
-            plot.caption = element_text(size= c(8.5,9) , hjust=c(0,1),
-                                        colour = rgb(0,0,0,.65),
+            plot.caption = element_text(size= 8.5, hjust=0,colour = rgb(0,0,0,.65),
                                         family = plot_font),
             strip.text = element_text(size=13),
             legend.position =legend_position, legend.text = element_text(size=13),
@@ -87,6 +94,11 @@ theme_ksnet_light <- function(legend_position='right',
     if( is_x_date ){
         tema <- tema + theme( axis.text.x = element_text(size=axis_x_size,
                                                          vjust=1) )
+    }
+    if( caption_ksnet ){
+        tema <- tema + theme( plot.caption = element_text(size= c(8.5,9) , hjust=c(0,1),
+                                                          colour = rgb(0,0,0,.65),
+                                                          family = plot_font) )
     }
 
     return(tema)

@@ -6,21 +6,32 @@
 \usage{
 theme_ksnet_light(
   legend_position = "right",
+  is_x_date = FALSE,
+  caption_ksnet = FALSE,
+  x_vjust = 4,
+  remove_grid_major_y = TRUE,
+  remove_grid_major_x = TRUE,
   title_size = 14.5,
   subtitle_size = 12.5,
   x_size = 12.5,
   y_size = 12.5,
   axis_x_size = 12,
   axis_y_size = 12,
-  x_vjust = 4,
-  remove_grid_major_y = TRUE,
-  remove_grid_major_x = TRUE,
-  is_x_date = FALSE,
   plot_font = "Public Sans"
 )
 }
 \arguments{
 \item{legend_position}{character vector. Default is right.}
+
+\item{is_x_date}{when x axis represents a date vector set to TRUE to adjust vjust.}
+
+\item{caption_ksnet}{Logical. Set to TRUE when using \code{ksnet::caption_ksnet}. See Examples.}
+
+\item{x_vjust}{numeric. Default 4.}
+
+\item{remove_grid_major_y}{logical. Default TRUE.}
+
+\item{remove_grid_major_x}{logical. Default TRUE.}
 
 \item{title_size}{numeric. Default 14.5.}
 
@@ -33,14 +44,6 @@ theme_ksnet_light(
 \item{axis_x_size}{numeric. Axis text size. Default 12.}
 
 \item{axis_y_size}{numeric. Axis text size. Default 12.}
-
-\item{x_vjust}{numeric. Default 4.}
-
-\item{remove_grid_major_y}{logical. Default TRUE.}
-
-\item{remove_grid_major_x}{logical. Default TRUE.}
-
-\item{is_x_date}{when x axis represents a date vector set to TRUE to adjust vjust.}
 
 \item{font_family}{default is Public Sants. But is is necessary to have it installed. See Details.}
 }
@@ -63,11 +66,15 @@ library(ggplot2)
 
 ggplot(mtcars,aes(mpg))+
   geom_density()+
+  labs( caption = 'Fuente: Elaboración propia' )+
   theme_ksnet_light()
 
+## gráfico divulgativo con la etiqueta KSNET
 ggplot(mtcars,aes(mpg))+
   geom_density()+
-  theme_ksnet_light(remove_grid_major_x = FALSE)
+  labs( caption = ksnet::caption_ksnet( 'Fuente: Elaboración propia' ))+
+  theme_ksnet_light( caption_ksnet = TRUE,
+                     remove_grid_major_x = FALSE)
 
 
 }

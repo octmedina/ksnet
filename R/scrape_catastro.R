@@ -64,11 +64,13 @@ scrape_catastro <- function(url, ID=NA_character_, i = NULL, verbose = FALSE){
             strsplit('\n\n') %>%
             unlist()
 
-        df_parcela <- tibble( 'referencia_catastral' = info_parcela_rf[3],
+        df_parcela <- tibble( 'refcat_parcela' = info_parcela_rf[3],
                               'tipo_parcela' = parcela[1],
                               'localizacion' = parcela[2],
                               'superficie_parcela' = parcela[3] ) %>%
-            mutate( 'ID' = ID, categoria = 'parcela', .before = 1 )
+            mutate( 'ID' = ID, categoria = 'parcela', .before = 1 ) %>%
+            mutate( 'superficie_parcela' = gsub(' m2','',superficie_parcela),
+                    'superficie_parcela' = as.numeric(superficie_parcela) )
 
         ## extraer la información de los inmuebles relacionados con la parcela
         inmuebles_temp <- html_temp_body %>%
@@ -76,7 +78,22 @@ scrape_catastro <- function(url, ID=NA_character_, i = NULL, verbose = FALSE){
             html_text2()
 
         df_inmuebles <- purrr::map_df(inmuebles_temp, clean_info_inmuebles) %>%
-            mutate( 'ID' = ID, categoria = 'inmueble', .before = 1 )
+            mutate( 'ID' = ID, categoria = 'inmueble', .before = 1 ) %>%
+
+            mutate( 'refcat_parcela' = stringr::str_sub(
+                refcat_inmueble, 1,14),
+                .before = refcat_inmueble ) %>%
+
+            mutate( 'superficie_inmueble' = gsub(' m2','',superficie_inmueble),
+                    'superficie_inmueble' = as.numeric(superficie_inmueble),
+
+                    'coef_participacion' = gsub('%','',coef_participacion),
+                    'coef_participacion' = gsub(',','.',coef_participacion),
+                    'coef_participacion' = as.numeric(coef_participacion)/100,
+
+                    any_construccion = as.numeric(any_construccion)
+
+                    )
 
         list_return <- list('parcela'=df_parcela,'inmuebles'=df_inmuebles )
 
@@ -113,7 +130,7 @@ clean_info_inmuebles <- function(x){
     info_inmueble <- strsplit(info_split[2],' \\| ')[[1]]
 
     df_info <- tibble(
-        'referencia_catastral' = referencia_catastral,
+        'refcat_inmueble' = referencia_catastral,
         'dir_inmueble' = dir_inmueble,
         'uso' = info_inmueble[1],
         'superficie_inmueble' = info_inmueble[2],
