@@ -35,9 +35,9 @@ as_tibble(mtcars) \%>\%
          cyl == 6 ~ 'Medio',
          cyl == 8 ~ 'Alto' ),
 
-     cyl_fct_case_when = fct_case_whe
-         cyl == 4 ~ 'Bajo'
-         cyl == 6 ~ 'Medio'
+     cyl_fct_case_when = fct_case_when(
+         cyl == 4 ~ 'Bajo',
+         cyl == 6 ~ 'Medio',
          cyl == 8 ~ 'Alto' )
      )
 
