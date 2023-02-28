@@ -2,16 +2,18 @@
 % Please edit documentation in R/check_stata_format.r
 \name{check_stata_format}
 \alias{check_stata_format}
+\alias{check_stata_format.data.frame}
+\alias{check_stata_format.default}
 \title{Adjust STATA objects to R format}
 \usage{
-check_stata_format(obj, return_labels = TRUE)
+check_stata_format(obj)
+
+\method{check_stata_format}{data.frame}(obj)
+
+\method{check_stata_format}{default}(obj)
 }
 \arguments{
 \item{obj}{A dataframe or a vector}
-
-\item{return_labels}{Logical. Return variable values as integers or with its labels. Default TRUE (labels).}
-
-\item{new_class}{When \code{return_lavels} set to FALSE, The desired class of the vector/variables. Choices: 'numeric', 'character' or 'logical'. By default it is converted to numeric.}
 }
 \value{
 The same object with its changed class.
@@ -24,6 +26,8 @@ Given that this class (with its attributes) does not exist in R this can lead to
 This function is provided for changing the class of the object. If it is a dataframe
 is not necessary to previously select the columns, since the function detects which
 variables need to be modified.
+
+The class of the new vector is guessed.
 
 When importing .dta data, coerce functions such as \code{as.numeric} or \code{as.character} work well in principle.
 However, if this .dta is transformed to a .rds (for memory reasons) the new vectors are intractables
