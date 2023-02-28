@@ -63,7 +63,27 @@ check_stata_format.data.frame <- function(obj){
 
 #' @rdname check_stata_format
 #' @export
+#'
 check_stata_format.default <- function(obj){
+
+    # Decidir si hacer o no el cambio de values-labels
+    make_change <- change_labels(obj)
+
+    if( make_change ){
+
+        obj <- change_valueLabels(obj)
+        obj <- clean_attributes(obj)
+
+    } else{
+        obj <- clean_attributes(obj)
+        obj <- guessAndset_class(obj)
+    }
+    return(obj)
+
+}
+
+
+change_valueLabels <- function(obj){
 
     # extraemos el vector de valores nombrado con labels y checkeamos
     # si hay labels duplicados, el output es una lista con 2 elementos,
@@ -71,6 +91,8 @@ check_stata_format.default <- function(obj){
     valueLabels_dup <- check_duplicate_label(obj)
 
     valueLabels <- valueLabels_dup$valueLabels
+
+
 
     # si hay duplicados, los sacamos del vector valueLabels y generamos
     # el nuevo vector de forma diferenciada
@@ -96,19 +118,11 @@ check_stata_format.default <- function(obj){
 
     }
 
-    # class(obj) <- 'character'
-    attr(obj,'format.stata') <- NULL # eliminamos este atributo
-    attr(obj,'display_width') <- NULL # eliminamos este atributo
-    attr(obj,'pregunta') <- attr(obj,'label') # dejamos la pregunta
-    attr(obj,'label') <- NULL
-    attr(obj,'labels') <- NULL # eliminamos las etiquetas de los factores
-
     obj <- new_values[ as.character(obj) ]
 
     names(obj) <- NULL
     names(new_values) <- NULL
 
-    # obj <- factor(obj, levels = new_values)
     obj <- guessAndset_class( obj, new_values )
 
     return( obj )
@@ -150,6 +164,27 @@ check_duplicate_label <- function(x){
     return(out)
 }
 
+
+change_labels <- function(x, max.dif = 3){
+
+    unique_values <- length( unique( x[ !is.na(x) ] ) )
+
+    unique_labels <- length( attr(x,'labels') )
+
+    dif <- abs( unique_values - unique_labels )
+
+    # si solo hay 1 etiqueta, devolver FALSE, es decir, no hacer el cambio
+    if( unique_labels == 1 ) return(FALSE)
+
+    # si hay más valores que levels tampoco hacerlo (en contreto 3)
+    else if( max.dif > 3 ) return(FALSE)
+
+    # si hay menos valores que levels o una diferencia de 1 o 2 entonces sí se ejecuta
+    else TRUE
+
+}
+
+# change_labels( bar$P29 ) # edad
 
 #' Adivina y modifica la clase de un vector
 #'
