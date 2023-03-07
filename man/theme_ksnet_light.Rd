@@ -17,7 +17,7 @@ theme_ksnet_light(
   y_size = 12.5,
   axis_x_size = 12,
   axis_y_size = 12,
-  plot_font = "Public Sans"
+  plot_font = NULL
 )
 }
 \arguments{
@@ -44,8 +44,6 @@ theme_ksnet_light(
 \item{axis_x_size}{numeric. Axis text size. Default 12.}
 
 \item{axis_y_size}{numeric. Axis text size. Default 12.}
-
-\item{font_family}{default is Public Sants. But is is necessary to have it installed. See Details.}
 }
 \value{
 An object of class gg theme to add for an existing ggplot object.

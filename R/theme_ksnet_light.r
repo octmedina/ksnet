@@ -18,8 +18,7 @@
 #' @param y_size numeric. Axis title size. Default 12.5.
 #' @param axis_x_size numeric. Axis text size. Default 12.
 #' @param axis_y_size numeric. Axis text size. Default 12.
-
-#' @param font_family default is Public Sants. But is is necessary to have it installed. See Details.
+#@param font_family default is Public Sants. But is is necessary to have it installed. See Details.
 #'
 #' @details
 #' At the beginning of your script, after having installed Public Sans font, you should
@@ -61,8 +60,13 @@ theme_ksnet_light <- function(legend_position='right',
                               axis_x_size=12,
                               axis_y_size=12,
 
-                              plot_font= 'Public Sans'
+                              plot_font= NULL
 ){
+#
+#     sysfonts::font_add("PTSans", "Fonts/PTSans.ttf")
+#
+#     showtext::showtext_auto()
+
     tema <- theme_minimal()+
         theme(
             plot.title = element_text(size=title_size,face='bold',family = plot_font) ,
@@ -104,6 +108,12 @@ theme_ksnet_light <- function(legend_position='right',
     return(tema)
 }
 
+# library(ggplot2)
+#
+# ggplot( mtcars, aes(disp,mpg) )+geom_point()+theme_ksnet_light()
+#
+# ggplot( mtcars, aes(disp,mpg) )+geom_point()+
+#     theme_ksnet_light(plot_font = 'Calibri_light')
 
 
 
