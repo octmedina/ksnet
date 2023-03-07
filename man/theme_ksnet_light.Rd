@@ -44,6 +44,8 @@ theme_ksnet_light(
 \item{axis_x_size}{numeric. Axis text size. Default 12.}
 
 \item{axis_y_size}{numeric. Axis text size. Default 12.}
+
+\item{font_family}{default is NULL. But is is necessary to have it installed. See Details.}
 }
 \value{
 An object of class gg theme to add for an existing ggplot object.
@@ -55,9 +57,7 @@ is not accesible with this function, it can be combined with another
 specific \code{theme}.
 }
 \details{
-At the beginning of your script, after having installed Public Sans font, you should
-write the following code to load the font:
-windowsFonts('Public Sans'='Public Sans')
+
 }
 \examples{
 library(ggplot2)

@@ -18,12 +18,14 @@
 #' @param y_size numeric. Axis title size. Default 12.5.
 #' @param axis_x_size numeric. Axis text size. Default 12.
 #' @param axis_y_size numeric. Axis text size. Default 12.
-#@param font_family default is Public Sants. But is is necessary to have it installed. See Details.
+#' @param font_family default is NULL. But is is necessary to have it installed. See Details.
 #'
 #' @details
 #' At the beginning of your script, after having installed Public Sans font, you should
 #' write the following code to load the font:
 #' windowsFonts('Public Sans'='Public Sans')
+#'
+#' Another alternative is to used the package \{showtext}.
 #'
 #' @return
 #' An object of class gg theme to add for an existing ggplot object.
