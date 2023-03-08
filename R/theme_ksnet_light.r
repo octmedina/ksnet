@@ -21,11 +21,14 @@
 #' @param remove_axis_title_x logical. Default FALSE.
 #' @param remove_axis_title_x logical. Default FALSE.
 #' @param plot_font default is Public Sans. But is is necessary to have it installed. See Details.
+#' @param font_family default is NULL. But is is necessary to have it installed. See Details.
 #'
 #' @details
 #' At the beginning of your script, after having installed Public Sans font, you should
 #' write the following code to load the font:
 #' windowsFonts('Public Sans'='Public Sans')
+#'
+#' Another alternative is to used the package \{showtext}.
 #'
 #' @return
 #' An object of class gg theme to add for an existing ggplot object.
@@ -64,8 +67,13 @@ theme_ksnet_light <- function(legend_position='right',
                               remove_axis_title_x = FALSE,
                               remove_axis_title_y = FALSE,
 
-                              plot_font= 'Public Sans'
+                              plot_font= NULL
 ){
+#
+#     sysfonts::font_add("PTSans", "Fonts/PTSans.ttf")
+#
+#     showtext::showtext_auto()
+
     tema <- theme_minimal()+
         theme(
             plot.title = element_text(size=title_size,face='bold',family = plot_font) ,
@@ -112,6 +120,12 @@ theme_ksnet_light <- function(legend_position='right',
     return(tema)
 }
 
+# library(ggplot2)
+#
+# ggplot( mtcars, aes(disp,mpg) )+geom_point()+theme_ksnet_light()
+#
+# ggplot( mtcars, aes(disp,mpg) )+geom_point()+
+#     theme_ksnet_light(plot_font = 'Calibri_light')
 
 
 
