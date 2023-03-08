@@ -18,6 +18,9 @@
 #' @param y_size numeric. Axis title size. Default 12.5.
 #' @param axis_x_size numeric. Axis text size. Default 12.
 #' @param axis_y_size numeric. Axis text size. Default 12.
+#' @param remove_axis_title_x logical. Default FALSE.
+#' @param remove_axis_title_x logical. Default FALSE.
+#' @param plot_font default is Public Sans. But is is necessary to have it installed. See Details.
 #' @param font_family default is NULL. But is is necessary to have it installed. See Details.
 #'
 #' @details
@@ -61,6 +64,8 @@ theme_ksnet_light <- function(legend_position='right',
                               y_size=12.5,
                               axis_x_size=12,
                               axis_y_size=12,
+                              remove_axis_title_x = FALSE,
+                              remove_axis_title_y = FALSE,
 
                               plot_font= NULL
 ){
@@ -106,7 +111,12 @@ theme_ksnet_light <- function(legend_position='right',
                                                           colour = rgb(0,0,0,.65),
                                                           family = plot_font) )
     }
-
+  if(remove_axis_title_x){
+    tema <- tema + theme(axis.title.x = element_blank())
+  }
+  if(remove_axis_title_y){
+    tema <- tema + theme(axis.title.y = element_blank())
+  }
     return(tema)
 }
 
