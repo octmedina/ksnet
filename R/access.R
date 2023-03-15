@@ -87,4 +87,19 @@ access_selectTable <- function( con, tableName ) {
 }
 
 
+#' Cerrar la conexión de Access
+#'
+#' Cerrar la conexión de Access
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' con <- access_import(db)
+#' access_closeConnection()
+#'
+access_closeConnection <- function(){
+    RODBC::odbcCloseAll()
+}
+
 
