@@ -42,7 +42,7 @@ iterative_join <- function(obj,fun, by = NULL, ...){
 
     out <- obj[[1]]
 
-    for (i in 2:length(out) ) {
+    for (i in 2:length(obj) ) {
         out <- fun( out, obj[[i]], by = by, ... )
      }
     return(out)
