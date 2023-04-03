@@ -82,7 +82,7 @@ access_searchTables <- function(con){
 access_selectTable <- function (con, tableName) {
     # cuando el nombre de la tabla tiene espacios hay que ponerlo dentro de ``
     tableName <- ifelse( grepl(' ',tableName), paste0('`',tableName,'`'),tableName )
-    print(tableName)
+    # print(tableName)
     dplyr::as_tibble(RODBC::sqlQuery(con, paste0("SELECT * FROM ",tableName)))
 }
 
