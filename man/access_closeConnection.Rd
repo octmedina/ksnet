@@ -6,6 +6,9 @@
 \usage{
 access_closeConnection()
 }
+\value{
+Se cierra la conexión.
+}
 \description{
 Cerrar la conexión de Access
 }

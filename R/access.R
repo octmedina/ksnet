@@ -79,11 +79,11 @@ access_searchTables <- function(con){
 #' tb_Provincias <- access_selectTable(con, 'tb_Provincias')
 #' tb_Provincias
 #'
-access_selectTable <- function( con, tableName ) {
-
-    dplyr::as_tibble(
-        RODBC::sqlQuery(con, paste0('SELECT * FROM ',tableName) )
-    )
+access_selectTable <- function (con, tableName) {
+    # cuando el nombre de la tabla tiene espacios hay que ponerlo dentro de ``
+    tableName <- ifelse( grepl(' ',tableName), paste0('`',tableName,'`'),tableName )
+    print(tableName)
+    dplyr::as_tibble(RODBC::sqlQuery(con, paste0("SELECT * FROM ",tableName)))
 }
 
 
@@ -91,7 +91,7 @@ access_selectTable <- function( con, tableName ) {
 #'
 #' Cerrar la conexión de Access
 #'
-#' @return
+#' @return Se cierra la conexión.
 #' @export
 #'
 #' @examples

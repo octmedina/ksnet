@@ -73,6 +73,4 @@ ggplot(mtcars,aes(mpg))+
   labs( caption = ksnet::caption_ksnet( 'Fuente: Elaboración propia' ))+
   theme_ksnet_light( caption_ksnet = TRUE,
                      remove_grid_major_x = FALSE)
-
-
 }

@@ -47,8 +47,7 @@
 #'   labs( caption = ksnet::caption_ksnet( 'Fuente: Elaboración propia' ))+
 #'   theme_ksnet_light( caption_ksnet = TRUE,
 #'                      remove_grid_major_x = FALSE)
-#'
-#'
+
 theme_ksnet_light <- function(legend_position='right',
                               is_x_date = FALSE,
                               caption_ksnet = FALSE,
@@ -61,7 +60,6 @@ theme_ksnet_light <- function(legend_position='right',
                               y_size=12.5,
                               axis_x_size=12,
                               axis_y_size=12,
-
                               plot_font= NULL
 ){
 #
@@ -94,13 +92,16 @@ theme_ksnet_light <- function(legend_position='right',
     if( remove_grid_major_y ){
         tema <- tema + theme( panel.grid.major.y = element_blank() )
     }
+
     if( remove_grid_major_x ){
         tema <- tema + theme( panel.grid.major.x = element_blank() )
     }
+
     if( is_x_date ){
         tema <- tema + theme( axis.text.x = element_text(size=axis_x_size,
                                                          vjust=1) )
     }
+
     if( caption_ksnet ){
         tema <- tema + theme( plot.caption = element_text(size= c(8.5,9) , hjust=c(0,1),
                                                           colour = rgb(0,0,0,.65),
@@ -109,14 +110,6 @@ theme_ksnet_light <- function(legend_position='right',
 
     return(tema)
 }
-
-# library(ggplot2)
-#
-# ggplot( mtcars, aes(disp,mpg) )+geom_point()+theme_ksnet_light()
-#
-# ggplot( mtcars, aes(disp,mpg) )+geom_point()+
-#     theme_ksnet_light(plot_font = 'Calibri_light')
-
 
 
 
